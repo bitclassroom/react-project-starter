@@ -1,0 +1,15 @@
+.hover:active {
+    background-color: rgb(104, 187, 231);
+}
+
+.hover:hover {
+    background-color: rgb(104, 187, 231);
+}
+
+.hover:visited {
+    background-color: rgb(104, 187, 231);
+}
+
+.hover:link {
+    background-color: rgb(104, 187, 231);
+}
