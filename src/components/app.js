@@ -1,6 +1,8 @@
 import React from "react";
 
 import HelloWorld from "./helloWorld/helloWorld";
+import Dashboard from "./dashboard";
+import LoginPage from "./loginComponents/loginPage";
 
 class App extends React.Component {
     constructor(props) {
@@ -8,7 +10,11 @@ class App extends React.Component {
     }
 
     render() {
-        return <HelloWorld />;
+        return (
+            <div>
+                <LoginPage />
+            </div>);
+        
     }
 }
 
