@@ -1,6 +1,6 @@
 import React from "react";
 
-import HelloWorld from "./helloWorld/helloWorld";
+import EntryPage from "./entryPage/entryPage";
 
 class App extends React.Component {
     constructor(props) {
@@ -8,7 +8,11 @@ class App extends React.Component {
     }
 
     render() {
-        return <HelloWorld />;
+        return (
+            <div className="container">
+                <EntryPage />
+            </div>
+        );
     }
 }
 
