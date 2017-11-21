@@ -1,5 +1,4 @@
-import { BASE_URL } from "../constants";
-import { API_KEY } from "../constants";
+import { BASE_URL, API_KEY } from "../constants";
 
 
 class FetchService {
