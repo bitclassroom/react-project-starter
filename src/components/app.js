@@ -1,14 +1,26 @@
 import React from "react";
 
-import HelloWorld from "./helloWorld/helloWorld";
+import { Switch, Route } from "react-router-dom";
+import LoginPage from "./login-page/login-page";
+import MainPage from "./mainPage";
+// import AuthenticationService from '../services/authenticationService';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
+
+        // this.isAuth = new AuthenticationService().isAuthenticated();
     }
 
+
     render() {
-        return <HelloWorld />;
+        // this.isAuth ? <MainPage /> : <LoginPage />
+        return (
+
+            <div>
+                <LoginPage />
+            </div>
+        );
     }
 }
 
