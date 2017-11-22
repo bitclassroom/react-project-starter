@@ -9,12 +9,27 @@ class App extends React.Component {
         super(props);
     }
 
+
+
     render() {
-        return (
-            <div>
-                <LoginPage />
-            </div>);
+        if (this.authenticationService.isAuthenticated()){
+            return (
+                <div>
+                    <MainPage />
+                </div>
+            );
+        }
+        else{
+            return (
+                <div>
+                    <LoginPage />
+                </div>
+            );
+        }
+     
         
+
+
     }
 }
 
