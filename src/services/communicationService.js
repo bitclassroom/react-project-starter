@@ -1,71 +1,55 @@
 import { BASE_URL, API_KEY } from "../constants";
+import axios from "axios";
 
+class CommunicationService {
+    constructor() {
+        this.createHeaders = this.createHeaders.bind(this);
+    }
 
-class FetchService {
-    constructor() { }
+    createHeaders() {
+        let sessionId = sessionStorage.getItem("sessionId");
+
+        if (sessionId) {
+            return {
+                "Key": API_KEY,
+                "sessionId": sessionId
+            };
+        }
+
+        return {
+            "Key": API_KEY
+        };
+    }
 
     postRequest(address, body, notifyPostRequest) {
 
-        const header = new Headers();
+        const requestURL = `${BASE_URL}/${address}`;
 
-        header.set("X-Custom-Header", "ThzJG6sS");
-        const reqestOptions = {
-            method: "POST",
-            headers: header,
-            body: body
-        };
-
-        fetch(`${BASE_URL}/${address}`, reqestOptions)
-            .then((response) => response.json())
-            .then((response) => {
+        axios.post(requestURL, body, {
+            headers: this.createHeaders()
+        })
+            .then(response => {
                 notifyPostRequest(response);
             })
-            .catch((error) => new Error(error));
-    }
-
-    // storeSession(sessionId) {
-    //     sessionStorage.setItem("sessionId", sessionId);
-    // }
-
-    // destroySession() {
-    //     sessionStorage.removeItem("sessionId");
-    // }
-
-    getHeaders() {
-
-        let headers = {
-            "Accept": "application/json , text/plain, */*",
-            "Content-Type": "application/json",
-            "key": API_KEY
-        };
-
-        let sID = sessionStorage.getItem("sessionId");
-        if (sID) {
-            headers.sessionId = sID;
-            return headers;
-        }
-
-        return headers;
+            .catch(error => {
+                new Error(error);
+            });
     }
 
     getRequest(address, notifyGetRequest) {
-        const reqestOptions = {
-            method: "get",
-            headers: new Headers({
-                "Content-Type": "text/plain",
-                "X-Custom-Header": "ProcessThisImmediately",
-                "Key": "ThzJG6sS"
-            })
-        };
+        const requestURL = `${BASE_URL}/${address}`;
 
-        fetch(`${BASE_URL}${address}`, reqestOptions)
-            .then((response) => response.json())
-            .then((response) => {
+        axios.get(requestURL, {
+            headers: this.createHeaders()
+        })
+            .then(response => {
                 notifyGetRequest(response);
             })
-            .catch((error) => new Error(error));
+            .catch(error => {
+                new Error(error);
+            });
     }
 
 }
 
-export default FetchService;
+export default CommunicationService;
