@@ -1,4 +1,5 @@
 import React from "react";
+import AuthenticationService from "../../services/authenticationService";
 
 class Login extends React.Component {
     constructor(props) {
@@ -10,12 +11,15 @@ class Login extends React.Component {
             isFormValid: false
         };
 
+        this.authService = new AuthenticationService();
+
         this.bindInit();
     }
 
     bindInit() {
         this.getEmailInput = this.getEmailInput.bind(this);
         this.getPassInput = this.getPassInput.bind(this);
+        this.handleLoginRequest = this.handleLoginRequest.bind(this);
     }
 
     getEmailInput(event) {
@@ -24,9 +28,10 @@ class Login extends React.Component {
         this.setState({
             emailInput
         });
-    }
+    } 
 
-    getPassInput() {
+
+    getPassInput(event) {
         const passInput = event.target.value;
 
         this.setState({
@@ -36,7 +41,17 @@ class Login extends React.Component {
 
     handleLoginRequest() {
         const emailInput = this.state.emailInput;
+        console.log(emailInput);
         const passInput = this.state.passInput;
+        console.log(passInput);
+
+        const userData = {
+            username: emailInput,
+            password: passInput
+        };
+        console.log(userData);
+
+        this.authService.login(userData);
 
         // if(!emailInput || !passInput) {
         //     let invalidInput = this.refs.inputDiv.getDOMNode();

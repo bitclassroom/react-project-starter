@@ -34,6 +34,7 @@ class Register extends React.Component {
         this.setState({
             registerPass
         });
+        
     }
 
     getEmailInput(event) {
