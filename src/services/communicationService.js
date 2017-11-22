@@ -4,7 +4,7 @@ import axios from "axios";
 
 class CommunicationService {
     constructor() {
-
+        this.key = "sessionID";
         this.get = this.get.bind(this);
         this.post = this.post.bind(this);
     }
@@ -33,11 +33,11 @@ class CommunicationService {
         });
     }
     getID() {
-        return sessionStorage.getItem("sessionID");
+        return sessionStorage.getItem(this.key);
 
     }
     setID(item){
-        sessionStorage.setItem("SessionID", item);
+        sessionStorage.setItem(this.key, item);
     }
     clearID(){
         sessionStorage.clear();

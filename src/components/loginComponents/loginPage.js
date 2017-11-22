@@ -1,9 +1,9 @@
 import React from "react";
 import Login from "./login";
 import Register from "./register";
-
+import MainPage from "../mainPage";
 import { Switch, Route } from "react-router-dom";
-
+import App from "../app";
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
