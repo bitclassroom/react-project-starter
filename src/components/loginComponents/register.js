@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AuthenticationService from "../../services/authenticationService";
 
 class Register extends React.Component {
     constructor(props) {
         super(props);
+        this.authentication = new AuthenticationService();
         this.state = this.initialState();
+        this.onClickRegister = this.onClickRegister.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
     initialState() {
@@ -22,8 +25,20 @@ class Register extends React.Component {
         });
         
     }
+    onClickRegister(event){
+        event.preventDefault();
+        let dataObj = {
+            username: this.state.name,
+            password: this.state.password,
+            name: this.state.name,
+            email: this.state.email
+
+        };
+
+        this.authentication.register(dataObj);
+    }
     render() {
-        console.log(this.state);
+       
         const { name, email, password } = this.state;
 
         return (
@@ -65,7 +80,7 @@ class Register extends React.Component {
                                     
                                     <input name="password" type="text" value={password} onChange={this.handleChange} placeholder="Password"/>
                                 </div>
-                                <button type="submit">Register</button>
+                                <button onClick={this.onClickRegister}type="submit">Register</button>
                             </div>
                         </form>
                     </div>
