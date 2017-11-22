@@ -239,6 +239,16 @@ textarea {
 
 // Custom CSS //////////////////////////////////////////////////////////////
 
+
+
+
+.body-class {
+    background: url(frontpage-background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .outer__wrapper {
     padding-top: 22%;
     margin: 0 auto;

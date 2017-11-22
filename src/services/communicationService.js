@@ -2,59 +2,66 @@ import { FETCH_ADDRESS } from "../constants";
 import { API_KEY } from "../constants";
 import axios from "axios";
 
-class ApiCommunication {
+class CommunicationService {
     constructor() {
 
+        this.get = this.get.bind(this);
+        this.post = this.post.bind(this);
     }
     get(address, callbackSuccess, callbackFail) {
-
-        axios.get(FETCH_ADDRESS + address, this.createRequest())
-            .then((response) => {
-                response.json()
-                    .then((response) => {
-                        callbackSuccess(response);
-                    }).catch((reason) => {
-                        callbackFail(reason);
-                    });
-            });
+        axios({
+            method: "get",
+            url: FETCH_ADDRESS + address,
+            headers: this.createRequest()
+        }).then((response) => {
+            callbackSuccess(response.data);
+        }).catch((reason) => {
+            callbackFail(reason);
+        });
     }
     post(address, dataObj, callbackSuccess, callbackFail) {
-        axios.post(FETCH_ADDRESS + address, this.createRequest(dataObj))
-            .then((response) => response.json())
-            .then((response) => {
-                callbackSuccess(response);
+        axios({
+            method: "post",
+            url: FETCH_ADDRESS + address,
+            data: dataObj,
+            headers: this.createRequest()
+        }).then((response) => {
+            callbackSuccess(response.data);
 
-            }).catch((reason) => {
-                callbackFail(reason);
-            });
-
+        }).catch((reason) => {
+            callbackFail(reason);
+        });
     }
-    getSessionID() {
+    getID() {
         return sessionStorage.getItem("sessionID");
 
     }
-    createRequest(dataObj = null) {
-        const sesID = this.getSessionID();
+    setID(item){
+        sessionStorage.setItem("SessionID", item);
+    }
+    clearID(){
+        sessionStorage.clear();
+    }
+    createRequest() {
+        const sesID = this.getID();
         if (sesID) {
             return {
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "key": API_KEY,
-                    "sessionID": sesID
-                },
-                data: dataObj
+
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "key": API_KEY,
+                "sessionID": sesID
+
             };
-        }else{
+        } else {
             return {
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "key": API_KEY                    
-                },
-                data: dataObj
+
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "key": API_KEY
+
             };
         }
     }
 }
-export default ApiCommunication;
+export default CommunicationService;
