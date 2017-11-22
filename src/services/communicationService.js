@@ -32,7 +32,7 @@ class CommunicationService {
                 notifyPostRequest(response);
             })
             .catch(error => {
-                new Error(error);
+                console.log("OVO JE EROR" + error.message + error.status );
             });
     }
 

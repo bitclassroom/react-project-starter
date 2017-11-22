@@ -99,11 +99,11 @@ class Login extends React.Component {
                 <form>
                     <label htmlFor="loginEmail"><b>Email</b></label>
                     <br />
-                    <input type="email" id="loginEmail" onChange={this.getEmailInput} onKeyPress={this.handleKeyPress} value={this.state.emailInput} placeholder="Email" style={{ marginBottom: "5px", width: "100%" }} />
+                    <input type="email" id="loginEmail" onChange={this.getEmailInput} onKeyPress={this.handleKeyPress} value={event.target.value} placeholder="Email" style={{ marginBottom: "5px", width: "100%" }} />
                     <br />
                     <label htmlFor="loginPass"><b>Password</b></label>
                     <br />
-                    <input type="password" id="loginPass" onChange={this.getPassInput} onKeyPress={this.handleKeyPress} value={this.state.passInput} placeholder="Password" style={{ marginBottom: "15px", width: "100%" }} />
+                    <input type="password" id="loginPass" onChange={this.getPassInput} onKeyPress={this.handleKeyPress} value={event.target.value} placeholder="Password" style={{ marginBottom: "15px", width: "100%" }} />
                     <br />
                     <button className={`btn btn-primary ${clName}`} id="loginButton" onClick={this.handleLoginRequest} style={{ marginLeft: "83%", borderRadius: "5px", width: "80px", position: "relative", top: "130px" }}>Login</button>
                     <p id="error"> {this.state.isThereError ? this.state.errorMessage : ""} </p>
