@@ -23,7 +23,7 @@ const switchBox = {
     width: "100%",
     backgroundColor: "rgb(104, 187, 231)",
     padding: "15px",
-    height: "287px"
+    height: "335px"
 };
 
 class EntryPage extends React.Component {
@@ -43,10 +43,12 @@ class EntryPage extends React.Component {
                         <Link to="/register"><h3 style={formStyle} className="hover">Register</h3></Link>
                     </div>
                     <div style={switchBox}>
-                        <Switch>
-                            <Route exact path="/" component={Login} />
-                            <Route exact path="/register" component={Register} />
-                        </Switch>
+                        <div>
+                            <Switch>
+                                <Route exact path="/login" component={Login} />
+                                <Route exact path="/register" component={Register} />
+                            </Switch>
+                        </div>
                     </div>
                 </div>
             </div>

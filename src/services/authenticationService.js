@@ -22,7 +22,7 @@ class AuthenticationService {
         this.commService.postRequest("login", userData, (data) => {
             console.log(data);
             this.storeSession(data.data.sessionId);
-            this.isUserAuthenticated();
+            this.redirect.redirect("");
         });
     }
 
@@ -41,12 +41,7 @@ class AuthenticationService {
     }
 
     isUserAuthenticated() {
-        const ID = sessionStorage.getItem("sessionId");
-        if (ID) {
-            this.redirect("main");
-        } else {
-            this.redirect("");
-        }
+        return !!sessionStorage.getItem("sessionId");
     }
 }
 
