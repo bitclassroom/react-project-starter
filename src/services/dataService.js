@@ -1,18 +1,29 @@
 import CommunicationService from "./communicationService";
+import Profile from "../entities/profile";
 
 class DataService {
     constructor(){
 
-        this.getRequest = new CommunicationService();
+        this.communication = new CommunicationService();
     }
 
     getProfileData(profileDataHandler){
-        this.getRequest.getRequest("profile", (data) =>{
-            profileDataHandler(data);
-            console.log(data);
+        this.communication.getRequest("profile", (response) =>{
+            const profile = new Profile(response.data);
+            profileDataHandler(profile);
         });
     }
 
+
+    updateProfileData(newData, updateProfile, errorHandler){
+        this.communication.postRequest("profile", newData, (response) =>{
+            if(response.status >= 200 && response.status < 400) {
+                window.location.reload();
+            } else {
+                errorHandler();
+            }
+        });
+    }
 }
 
 export default DataService;
