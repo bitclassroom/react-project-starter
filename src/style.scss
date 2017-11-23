@@ -1,3 +1,17 @@
+$body-bg: #c1bdba;
+$form-bg: #13232f;
+$white: #ffffff;
+$main: #0d60cc;
+$active: #1476ee;
+$main2: #15a079;
+$main-light: lighten($main,5%);
+$main-dark: darken($main,5%);
+$gray-light: #a0b3b0;
+$gray: #ddd;
+$thin: 300;
+$normal: 400;
+$bold: 600;
+$br: 4px;
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -43,24 +57,6 @@ table {
 	border-spacing: 0;
 }
 
-
-$body-bg: #c1bdba;
-$form-bg: #13232f;
-$white: #ffffff;
-
-$main: #1ab188;
-$main2: #15a079;
-$main-light: lighten($main,5%);
-$main-dark: darken($main,5%);
-
-$gray-light: #a0b3b0;
-$gray: #ddd;
-
-$thin: 300;
-$normal: 400;
-$bold: 600;
-$br: 4px;
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -83,46 +79,148 @@ a {
   }
 }
 
-.form {
-  background:rgba($form-bg,.9);
-  padding: 40px;
-  max-width:600px;
-  margin:40px auto;
-  border-radius:$br;
-  box-shadow:0 4px 10px 4px rgba($form-bg,.3);
+// Our style 
+.intro {
+    background-color: red;
+    width: 100%;
+    background: url(frontpage-background2.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    .outer__wrapper {
+        padding-top: 22%;
+        margin: 0 auto;
+        .inner__wrapper--left {
+            float: left;
+            max-width: 50%;
+            .h1__main-page {
+                font-size: 2rem;
+                padding-top: 50px;
+                h1 {
+                    color: #fff;
+                    font-weight: bold;
+                }
+            }
+            .p__main-page {
+                font-size: 1.3rem;
+                line-height: 1.4;
+                padding-top: 20px;
+                color: #f2f2f2;
+            }
+        }
+        .inner__wrapper--right {
+            float: right;
+            max-width: 50%;
+            .tab-group {
+                list-style:none;
+                padding:0;
+                margin:0 0 40px 0;
+                &:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+                li a {
+                    display:block;
+                    text-decoration:none;
+                    padding:15px;
+                    background:rgba($gray-light,.25);
+                    color:$gray-light;
+                    font-size:20px;
+                    float:left;
+                    width:50%;
+                    text-align:center;
+                    cursor:pointer;
+                    transition:.5s ease;
+                    &:hover {
+                        background:$main-dark;
+                        color:$white;
+                    }
+                }
+                .active a {
+                    background-color:$active;
+                    color: $white;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+                .active2 a {
+                    background:$main;
+                    color:$white;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    
+    .form {
+        background:rgba($form-bg,.9);
+        padding: 40px;
+        max-width:600px;
+        margin:40px auto;
+        border-radius:$br;
+        box-shadow:0 4px 10px 4px rgba($form-bg,.3);
+        .top-row {
+            &:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+                > div {
+                float:left;
+                width:100%;
+                &:last-child { 
+                    margin:0;
+                }
+            }
+            .form-btn {
+                border:0;
+                outline:none;
+                border-radius:0;
+                padding:15px 10px;
+                font-size:1rem;
+                font-weight:$bold;
+                text-transform:uppercase;
+                letter-spacing:.1em;
+                background:$active;
+                color:$white;
+                transition:all.5s ease;
+                -webkit-appearance: none;
+                &:hover, &:focus {
+                  background:$main-dark;
+                }
+            }
+            .field-wrap {
+                position:relative;
+                margin-bottom:40px;
+                input, textarea {
+                    font-size:22px;
+                    display:block;
+                    width:100%;
+                    height:100%;
+                    padding:5px 10px;
+                    background:none;
+                    background-image:none;
+                    border:1px solid $gray-light;
+                    color:$white;
+                    border-radius:0;
+                    transition:border-color .25s ease, box-shadow .25s ease;
+                    &:focus {
+                        outline:0;
+                        border-color:$main;
+                    }
+                }
+                textarea {
+                    border:2px solid $gray-light;
+                    resize: vertical;
+                }
+            }
+        }
+    }
 }
 
-.tab-group {
-  list-style:none;
-  padding:0;
-  margin:0 0 40px 0;
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  li a {
-    display:block;
-    text-decoration:none;
-    padding:15px;
-    background:rgba($gray-light,.25);
-    color:$gray-light;
-    font-size:20px;
-    float:left;
-    width:50%;
-    text-align:center;
-    cursor:pointer;
-    transition:.5s ease;
-    &:hover {
-      background:$main-dark;
-      color:$white;
-    }
-  }
-  .active a {
-    background:$main;
-    color:$white;
-  }
-}
 
 .tab-content > div:last-child {
   display:none;
@@ -136,96 +234,6 @@ h1 {
   margin:0 0 40px;
 }
 
-label {
-  position:absolute;
-  transform:translateY(6px);
-  left:13px;
-  color:rgba($white,.5);
-  transition:all 0.25s ease;
-  -webkit-backface-visibility: hidden;
-  pointer-events: none;
-  font-size:22px;
-  .req {
-  	margin:2px;
-  	color:$main;
-  }
-}
-
-label.active {
-  transform:translateY(50px);
-  left:2px;
-  font-size:14px;
-  .req {
-    opacity:0;
-  }
-}
-
-label.highlight {
-	color:$white;
-}
-
-input, textarea {
-  font-size:22px;
-  display:block;
-  width:100%;
-  height:100%;
-  padding:5px 10px;
-  background:none;
-  background-image:none;
-  border:1px solid $gray-light;
-  color:$white;
-  border-radius:0;
-  transition:border-color .25s ease, box-shadow .25s ease;
-  &:focus {
-		outline:0;
-		border-color:$main;
-  }
-}
-
-textarea {
-  border:2px solid $gray-light;
-  resize: vertical;
-}
-
-.field-wrap {
-  position:relative;
-  margin-bottom:40px;
-}
-
-.top-row {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  > div {
-    float:left;
-    width:100%;
-    
-    &:last-child { 
-      margin:0;
-    }
-  }
-}
-
-.button {
-  border:0;
-  outline:none;
-  border-radius:0;
-  padding:15px 0;
-  font-size:2rem;
-  font-weight:$bold;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-  background:$main;
-  color:$white;
-  transition:all.5s ease;
-  -webkit-appearance: none;
-  &:hover, &:focus {
-    background:$main-dark;
-  }
-}
 
 .button-block {
   display:block;
@@ -235,45 +243,4 @@ textarea {
 .forgot {
   margin-top:-20px;
   text-align:right;
-}
-
-// Custom CSS //////////////////////////////////////////////////////////////
-
-
-
-
-.body-class {
-    background: url(frontpage-background.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-.outer__wrapper {
-    padding-top: 22%;
-    margin: 0 auto;
-}
-
-.inner__wrapper--left {
-    float: left;
-    max-width: 50%;
-}
-
-.inner__wrapper--right {
-    float: right;
-    max-width: 50%;
-}
-
-.h1__main-page {
-    font-size: 2rem;
-    padding-top: 50px;
-}
-.h1__main-page h1 {
-    color: #15a079;
-    font-weight: bold;
-}
-.p__main-page {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    padding-top: 20px;
 }

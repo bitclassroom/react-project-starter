@@ -3,7 +3,7 @@ import React from "react";
 class NavMenu extends React.Component {
     constructor(props) {
         super(props);
-        
+
     }
 
 
@@ -14,7 +14,14 @@ class NavMenu extends React.Component {
                 <nav>
                     <ul>
                         <li>
-                            <a href="#" src="">Link</a>
+                            <a href="#" src="">HOME</a>
+                        </li>
+                        <li>
+                            <a href="#" src="">PROFILE</a>
+
+                        </li>
+                        <li>
+                            <a href="#" src="">POSTS</a>
                         </li>
                     </ul>
                 </nav>
