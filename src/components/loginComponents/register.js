@@ -76,7 +76,6 @@ class Register extends React.Component {
     render() {
 
 
-
         const { name, email, password1, password2, username, badEmail, badPass, badSecondPass, badUsername, badName } = this.state;
 
 
