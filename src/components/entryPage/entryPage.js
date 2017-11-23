@@ -39,8 +39,8 @@ class EntryPage extends React.Component {
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 table">
                     <div>
-                        <Link to="/"><h3 style={formStyle} className="hover">Log In</h3></Link>
-                        <Link to="/register"><h3 style={formStyle} className="hover">Register</h3></Link>
+                        <Link to="/"><h3 style={formStyle} className={ window.location.hash.indexOf("/register") !== -1 ? "hover" : "hover checked"} onClick={this.changeClass} >Log In</h3></Link>
+                        <Link to="/register"><h3 style={formStyle} className={ window.location.hash.indexOf("/register") !== -1 ? "hover checked" : "hover"}>Register</h3></Link>
                     </div>
                     <div style={switchBox}>
                         <div>
