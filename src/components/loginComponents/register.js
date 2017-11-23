@@ -75,7 +75,7 @@ class Register extends React.Component {
         return (
             <div className="body-class">
                 <div className="outer__wrapper">
-                    <div className="inner__wrapper--left col-12 col-md-6">
+                    <div className="inner__wrapper--left">
                         <div className="h1__main-page">
                             <h1>REGISTER TO BITBOOK</h1>
                         </div>
@@ -85,7 +85,7 @@ class Register extends React.Component {
                             </p>
                         </div>
                     </div>
-                    <div className="inner__wrapper--right col-12 col-md-6">
+                    <div className="inner__wrapper--right">
                         <div className="navigation">
                             <div>
                                 <ul className="tab-group">
