@@ -16,6 +16,7 @@ class NavMenu extends React.Component {
         return (
             <header>
                 <nav>
+
                     <div className="logo-img">
                         <img src="../services/logo-img.png" height="40px" width="38px" alt="logo-image" />
                     </div>
@@ -41,6 +42,7 @@ class NavMenu extends React.Component {
                             </li>
                         </ul>
                     </div>
+
                 </nav>
             </header>
         );
