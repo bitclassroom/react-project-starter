@@ -22,7 +22,9 @@ const profileStyle = {
 };
 
 const nameStyle = {
-    textAlign: "center"
+    textAlign: "center",
+    color: "red"
+
 };
 
 class UserProfile extends Component {
