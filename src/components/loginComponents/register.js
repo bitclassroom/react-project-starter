@@ -1,45 +1,71 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthenticationService from "../../services/authenticationService";
-
+import validateEmail from "../../services/validateEmail";
 class Register extends React.Component {
     constructor(props) {
         super(props);
         this.authentication = new AuthenticationService();
         this.state = this.initialState();
+        this.bindThisAndThats();
+    }
+    bindThisAndThats() {
         this.onClickRegister = this.onClickRegister.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.serverErrorHandler = this.serverErrorHandler.bind(this);
     }
     initialState() {
         return {
             name: "",
+            username: "",
             email: "",
-            password: ""
-
+            password1: "",
+            password2: "",
         };
     }
     handleChange(event) {
-        
+
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            badName: "",
+            badUsername:"",
+            badEmail: "",
+            badPass: "",
+            badSecondPass: "",
+            badName: ""
         });
-        
+
     }
-    onClickRegister(event){
+    serverErrorHandler(e){
+        this.setState({
+            badUsername: e.response.data.error.message
+        });
+    }
+    onClickRegister(event) {
+        const { username, name, email, password1, password2 } = this.state;
         event.preventDefault();
-        let dataObj = {
-            username: this.state.name,
-            password: this.state.password,
-            name: this.state.name,
-            email: this.state.email
+        if(name===""){this.setState({badName:"This field is required"}); return;}
+        if(username===""){this.setState({badUsername:"This field is required"}); return;}
+        if (!validateEmail(email)) { this.setState({ badEmail: "Email address is bad!" }); return; }
+        if (password1.length < 6) { this.setState({ badPass: "Password must be at least 6 characters long" }); return; }
+        if (password1 === password2) {
+            let dataObj = {
+                "username": username,
+                "password": password1,
+                "name": name,
+                "email": email
+            };
 
-        };
+            this.authentication.register(dataObj, this.serverErrorHandler);
+        }
+        else {
+            this.setState({ badSecondPass: "Passwords do not match" });
+        }
 
-        this.authentication.register(dataObj);
     }
     render() {
-       
-        const { name, email, password } = this.state;
+
+        const { name, email, password1, password2, username, badEmail, badPass, badSecondPass, badUsername, badName } = this.state;
 
         return (
             <div className="outer__wrapper">
@@ -67,20 +93,34 @@ class Register extends React.Component {
                         </div>
                         <form className="form">
                             <div className="top-row">
+                               
                                 <div className="field-wrap">
-                                   
-                                    <input name="name" type="text" value={name} onChange={this.handleChange} placeholder="Name"  />
-                                </div>
-                                <div className="field-wrap">
-                                   
 
-                                    <input name="email" type="text" value={email} onChange={this.handleChange} placeholder="E-mail"/>
+                                    <input name="name" type="text" value={name} onChange={this.handleChange} placeholder="Name" />
+                                </div>
+                                <div style={{ "color": "red" }} >{badName}</div>
+                                <div className="field-wrap">
+
+                                    <input name="username" type="text" value={username} onChange={this.handleChange} placeholder="Username" />
+                                </div>
+                                <div style={{ "color": "red" }}>{badUsername}</div>
+                                <div className="field-wrap">
+
+
+                                    <input name="email" type="text" value={email} onChange={this.handleChange} placeholder="E-mail" />
+                                    <div style={{ "color": "red" }}> {badEmail} </div>
                                 </div>
                                 <div className="field-wrap">
-                                    
-                                    <input name="password" type="text" value={password} onChange={this.handleChange} placeholder="Password"/>
+
+                                    <input name="password1" type="text" value={password1} onChange={this.handleChange} placeholder="Password" />
                                 </div>
-                                <button onClick={this.onClickRegister}type="submit">Register</button>
+                                <div style={{ "color": "red" }}> {badPass} </div>
+                                <div className="field-wrap">
+
+                                    <input name="password2" type="text" value={password2} onChange={this.handleChange} placeholder="Repeat password" />
+                                </div>
+                                <div style={{ "color": "red" }}> {badSecondPass} </div>
+                                <button onClick={this.onClickRegister} type="submit">Register</button>
                             </div>
                         </form>
                     </div>

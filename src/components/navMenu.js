@@ -14,7 +14,7 @@ class NavMenu extends React.Component {
                 <nav>
                     <ul>
                         <li>
-                            <a href="#" src="">Link</a>
+                            <a href="#" src="">MAIN PAGE</a>
                         </li>
                     </ul>
                 </nav>

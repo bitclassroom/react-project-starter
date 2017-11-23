@@ -34,20 +34,20 @@ class Login extends React.Component {
 
         this.authentication.login(dataObj);
     }
-    onKeyDown(event) {
-        event.preventDefault();
-        if (event.keyCode = "13") {
+    // onKeyDown(event) {
+    //     event.preventDefault();
+    //     if (event.keyCode = "13") {
             
-            let dataObj = {
-                username: this.state.username,
-                password: this.state.password
+    //         let dataObj = {
+    //             username: this.state.username,
+    //             password: this.state.password
 
-            };
+    //         };
 
-            this.authentication.login(dataObj);
-        }
+    //         this.authentication.login(dataObj);
+    //     }
 
-    }
+    // }
 
     render() {
 
