@@ -20,7 +20,6 @@ class AuthenticationService {
 
     login(userData) {
         this.commService.postRequest("login", userData, (data) => {
-            console.log(data);
             this.storeSession(data.data.sessionId);
             this.redirect.redirect("feed");
         });
