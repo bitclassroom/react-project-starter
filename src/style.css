@@ -61,7 +61,7 @@ a {
 .intro {
   background-color: red;
   width: 100%;
-  background: url(frontpage-background2.jpg) no-repeat center center fixed;
+  background: url(frontpage-background3.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -78,13 +78,13 @@ a {
         font-size: 2rem;
         padding-top: 50px; }
         .intro .outer__wrapper .inner__wrapper--left .h1__main-page h1 {
-          color: #fff;
+          color: #000;
           font-weight: bold;
           text-align: right; }
       .intro .outer__wrapper .inner__wrapper--left .p__main-page {
         font-size: 1.3rem;
         line-height: 1.4;
-        color: #f2f2f2;
+        color: #333;
         text-align: right; }
     .intro .outer__wrapper .inner__wrapper--right {
       float: right;

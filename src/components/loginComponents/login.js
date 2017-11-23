@@ -31,18 +31,20 @@ class Login extends React.Component {
         };
         this.authentication.login(dataObj);
     }
+    // onKeyDown(event) {
+    //     event.preventDefault();
+    //     if (event.keyCode = "13") {
+            
+    //         let dataObj = {
+    //             username: this.state.username,
+    //             password: this.state.password
 
-    onKeyDown(event) {
-        event.preventDefault();
-        if (event.keyCode = "13") {  
-            let dataObj = {
-                username: this.state.username,
-                password: this.state.password
+    //         };
 
-            };
-            this.authentication.login(dataObj);
-        }
-    }
+    //         this.authentication.login(dataObj);
+    //     }
+
+    // }
 
     render() {
         return (
@@ -59,7 +61,7 @@ class Login extends React.Component {
                         </div>
                     </div>
                     <div className="inner__wrapper--right">
-                        <div className="col-12 navigation">
+                        <div className="navigation">
                             <div>
                                 <ul className="tab-group">
                                     <li className="tab active"><Link to="/login">Login</Link></li>
@@ -74,7 +76,7 @@ class Login extends React.Component {
                                     </div>
                                     <div className="field-wrap">
 
-                                        <input name="password" className="form-control" required type="text" value={this.state.password} placeholder="Password" onChange={this.changeState} />
+                                        <input type="password" name="password" className="form-control" required value={this.state.password} placeholder="Password" onChange={this.changeState} />
                                     </div>
                                     <button className="form-btn" onClick={this.onClickLogin} type="submit">Login</button>
                                 </div>
