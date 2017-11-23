@@ -21,17 +21,14 @@ class Login extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-
     }
-    onClickLogin(event) {
 
+    onClickLogin(event) {
         event.preventDefault();
         let dataObj = {
             username: this.state.username,
             password: this.state.password
-
         };
-
         this.authentication.login(dataObj);
     }
     // onKeyDown(event) {
@@ -50,8 +47,6 @@ class Login extends React.Component {
     // }
 
     render() {
-
-
         return (
             <div className="body-class">
                 <div className="outer__wrapper">
@@ -66,7 +61,7 @@ class Login extends React.Component {
                         </div>
                     </div>
                     <div className="inner__wrapper--right">
-                        <div className="col-12 navigation">
+                        <div className="navigation">
                             <div>
                                 <ul className="tab-group">
                                     <li className="tab active"><Link to="/login">Login</Link></li>
@@ -77,11 +72,11 @@ class Login extends React.Component {
                                 <div className="top-row">
                                     <div className="field-wrap">
 
-                                        <input name="username" type="text" value={this.state.username} placeholder="Username" onChange={this.changeState} />
+                                        <input name="username" className="form-control" required type="text" value={this.state.username} placeholder="Username" onChange={this.changeState} />
                                     </div>
                                     <div className="field-wrap">
 
-                                        <input name="password" type="text" value={this.state.password} placeholder="Password" onChange={this.changeState} />
+                                        <input type="password" name="password" className="form-control" required value={this.state.password} placeholder="Password" onChange={this.changeState} />
                                     </div>
                                     <button className="form-btn" onClick={this.onClickLogin} type="submit">Login</button>
                                 </div>
@@ -93,8 +88,5 @@ class Login extends React.Component {
         );
     }
 }
-
-
-
 
 export default Login;
