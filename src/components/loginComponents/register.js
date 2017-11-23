@@ -25,6 +25,7 @@ class Register extends React.Component {
     }
     handleChange(event) {
 
+
         this.setState({
             [event.target.name]: event.target.value,
             badName: "",
@@ -37,12 +38,15 @@ class Register extends React.Component {
 
     }
     serverErrorHandler(e){
+
         this.setState({
             badUsername: e.response.data.error.message
         });
+
     }
     onClickRegister(event) {
         const { username, name, email, password1, password2 } = this.state;
+
         event.preventDefault();
         if(name===""){this.setState({badName:"This field is required"}); return;}
         if(username===""){this.setState({badUsername:"This field is required"}); return;}
@@ -65,32 +69,17 @@ class Register extends React.Component {
     }
     render() {
 
-        const { name, email, password1, password2, username, badEmail, badPass, badSecondPass, badUsername, badName } = this.state;
+
+        const { name, email, password1, password2, username, badEmail, badPass, badSecondPass, badUsername, badName } = this.state
 
         return (
-            <div className="outer__wrapper">
-                <div className="inner__wrapper--left">
-                    <div className="h1__main-page">
-                        <h1>WELCOME TO BITBOOK</h1>
-                    </div>
-                    <div className="p__main-page">
-                        <p>
-                            Random text Random text. Random text Random text. Random text Random text
-                            Random text Random text. Random text Random text. Random text Random text
-                            Random text Random text. Random text Random text. Random text Random text
-                            Random text Random text. Random text Random text. Random text Random text
-
-                        </p>
-                    </div>
-                </div>
-                <div className="inner__wrapper--right">
-                    <div className="col-12 navigation">
-                        <div>
-                            <ul className="tab-group">
-                                <li className="tab active"><Link to="/login">Login</Link></li>
-                                <li className="tab active"><Link to="/register">Register</Link></li>
-                            </ul>
+            <div className="body-class">
+                <div className="outer__wrapper">
+                    <div className="inner__wrapper--left">
+                        <div className="h1__main-page">
+                            <h1>REGISTER TO BITBOOK</h1>
                         </div>
+
                         <form className="form">
                             <div className="top-row">
                                
@@ -123,6 +112,7 @@ class Register extends React.Component {
                                 <button onClick={this.onClickRegister} type="submit">Register</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

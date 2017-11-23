@@ -61,10 +61,7 @@ class Login extends React.Component {
                         </div>
                         <div className="p__main-page">
                             <p>
-                                Random text Random text. Random text Random text. Random text Random text
-                            Random text Random text. Random text Random text. Random text Random text
-                            Random text Random text. Random text Random text. Random text Random text
-                            Random text Random text. Random text Random text. Random text Random text
+                            Beogradski institut za tehnologiju – BIT je škola za programiranje osnovana u Beogradu, s ciljem da svoje polaznike uči praktičnim i primenljivim znanjima u IT industriji. Tehnički deo programa je FrontEnd Stack, najčešće tražen od strane poslodavaca. Pored tehničkog obrazovanja, u BITu se uči i kako funkcioniše IT industrija i kako pronaći svoje mesto u njoj.
                             </p>
                         </div>
                     </div>
@@ -73,7 +70,7 @@ class Login extends React.Component {
                             <div>
                                 <ul className="tab-group">
                                     <li className="tab active"><Link to="/login">Login</Link></li>
-                                    <li className="tab active"><Link to="/register">Register</Link></li>
+                                    <li className="tab active2"><Link to="/register">Register</Link></li>
                                 </ul>
                             </div>
                             <form className="form">
@@ -86,7 +83,7 @@ class Login extends React.Component {
 
                                         <input name="password" type="text" value={this.state.password} placeholder="Password" onChange={this.changeState} />
                                     </div>
-                                    <button onClick={this.onClickLogin} type="submit">Login</button>
+                                    <button className="form-btn" onClick={this.onClickLogin} type="submit">Login</button>
                                 </div>
                             </form>
                         </div>
