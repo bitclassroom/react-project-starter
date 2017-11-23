@@ -1,0 +1,25 @@
+
+.checked{
+    background-color: rgb(104, 187, 231);
+}
+
+.hover:link {
+    text-decoration: none;
+}
+
+.hover:visited {
+    background-color: rgb(104, 187, 231);
+}
+
+.hover:hover {
+    background-color: rgb(104, 187, 231);
+}
+
+.hover:active {
+    background-color: rgb(104, 187, 231);
+} 
+
+
+
+
+
