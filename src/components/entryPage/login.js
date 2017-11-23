@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import AuthenticationService from "../../services/authenticationService";
-import MainFeed from "../mainFeed/mainFeed";
+import Feed from "../userPages/feed";
 
 class Login extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class Login extends React.Component {
         this.state = {
             emailInput: "",
             passInput: "",
-            errorMessage: "The password has to have at least 6 characters",
+            errorMessage: "The password has to have at least 4 characters",
             isThereError: false,
             isDisabled: true
         };
@@ -63,16 +63,17 @@ class Login extends React.Component {
         return re.test(email);
     }
 
-    handleLoginRequest() {
+    handleLoginRequest(e) {
+        e.preventDefault();
+
         const emailInput = this.state.emailInput;
         const passInput = this.state.passInput;
-        if (this.validateEmail(emailInput) && passInput.length >= 4) {
 
+        if (this.validateEmail(emailInput) && passInput.length >= 4) {
             const userData = {
                 username: emailInput,
                 password: passInput
             };
-            console.log(userData);
 
             this.authService.login(userData);
 
@@ -80,14 +81,14 @@ class Login extends React.Component {
                 emailInput: "",
                 passInput: ""
             });
+
+
         }
-        else
-            return;
     }
 
     handleKeyPress(e) {
         if (e.key === "Enter") {
-            this.handleLoginRequest();
+            this.handleLoginRequest(e);
         }
     }
 
@@ -95,8 +96,8 @@ class Login extends React.Component {
         const clName = this.state.isDisabled ? "disabled" : "";
 
         return (
-            <div ref="loginDiv">
-                <form>
+            <div>
+                <form onSubmit={this.handleLoginRequest}>
                     <label htmlFor="loginEmail"><b>Email</b></label>
                     <br />
                     <input type="email" id="loginEmail" onChange={this.getEmailInput} onKeyPress={this.handleKeyPress} value={event.target.value} placeholder="Email" style={{ marginBottom: "5px", width: "100%" }} />
@@ -105,7 +106,7 @@ class Login extends React.Component {
                     <br />
                     <input type="password" id="loginPass" onChange={this.getPassInput} onKeyPress={this.handleKeyPress} value={event.target.value} placeholder="Password" style={{ marginBottom: "15px", width: "100%" }} />
                     <br />
-                    <button className={`btn btn-primary ${clName}`} id="loginButton" onClick={this.handleLoginRequest} style={{ marginLeft: "83%", borderRadius: "5px", width: "80px", position: "relative", top: "130px" }}>Login</button>
+                    <button className={`btn btn-primary ${clName}`} id="loginButton" style={{ marginLeft: "83%", borderRadius: "5px", width: "80px", position: "relative", top: "130px" }}>Login</button>
                     <p id="error"> {this.state.isThereError ? this.state.errorMessage : ""} </p>
                 </form>
             </div>

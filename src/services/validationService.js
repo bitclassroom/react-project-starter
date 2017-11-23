@@ -35,7 +35,7 @@ export default class ValidationService {
 
     validateSurname(name) {
         if (!name) {
-            alert("Please enter your name");
+            alert("Please enter your user name");
             return false;
         } else {
             return true;

@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import EntryPage from "./entryPage/entryPage";
-import MainFeed from "./mainFeed/mainFeed";
+import Main from "./userPages/main";
 
 import AuthenticationService from "../services/authenticationService";
 
@@ -26,9 +26,7 @@ class App extends React.Component {
             );
         }
 
-        return (
-            <MainFeed  />
-        );
+        return <Main  />;
     }
 }
 
