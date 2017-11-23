@@ -32,7 +32,7 @@ class CommunicationService {
                 notifyPostRequest(response);
             })
             .catch(error => {
-                console.log("OVO JE EROR" + error.message + error.status );
+                alert(error.response.status + " " + error.response.data.error.message);
             });
     }
 
@@ -46,7 +46,7 @@ class CommunicationService {
                 notifyGetRequest(response);
             })
             .catch(error => {
-                new Error(error);
+                alert(error.response.status + " " + error.response.data.error.message);
             });
     }
 

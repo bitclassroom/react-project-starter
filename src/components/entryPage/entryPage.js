@@ -23,7 +23,7 @@ const switchBox = {
     width: "100%",
     backgroundColor: "rgb(104, 187, 231)",
     padding: "15px",
-    height: "335px"
+    height: "415px"
 };
 
 class EntryPage extends React.Component {

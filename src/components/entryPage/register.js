@@ -12,7 +12,8 @@ class Register extends React.Component {
             emailString: "",
             passwordString: "",
             usernameString: "",
-            confirmedPassword: ""
+            confirmedPassword: "",
+            isDisabled: true
         };
 
         this.bindInit();
@@ -63,27 +64,35 @@ class Register extends React.Component {
         const confirmedPassword = event.target.value;
 
         this.setState({
-            confirmedPassword
+            confirmedPassword,
+            isDisabled: false
         });
     }
 
     allRegisterData() {
         let userData = {
-            name: this.state.nameString,
+            username: this.state.emailString,
             password: this.state.passwordString,
             confirmedPassword: this.state.confirmedPassword,
             email: this.state.emailString,
-            username: this.state.usernameString,
+            name: this.state.usernameString
         };
 
-        let validateChecker = this.validation.ultimateValidation(userData);
+        let validateChecker = this.validation.validateEverything(userData);
+
         if (validateChecker) {
+            delete userData.confirmedPassword;
             this.authentication.register(userData);
+            this.redirection.redirect("");
         }
-        this.redirection.redirect("login");
     }
 
+        
+    
+
     render() {
+        const clName = this.state.isDisabled ? "disabled" : "";
+
         return (
             <div>
                 <form>
@@ -107,7 +116,7 @@ class Register extends React.Component {
                     <br />
                     <input type="password" id="repeatedPass" onChange={this.passwordConfirmedHandler} value={event.target.value} placeholder="Min 6 characters" style={{ marginBottom: "15px", width: "100%" }} />
                     <br />
-                    <button className="btn btn-primary" id="registerButton" onClick={this.allRegisterData} style={{ marginLeft: "83%", borderRadius: "5px", width: "80px" }}>Register</button>
+                    <button className={`btn btn-primary ${clName}`} id="registerButton" onClick={this.allRegisterData} style={{ marginLeft: "83%", borderRadius: "5px", width: "80px" }}>Register</button>
                 </form>
             </div>
         );
