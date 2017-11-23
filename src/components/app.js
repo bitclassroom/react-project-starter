@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Switch, Route, Redirect } from "react-router-dom";
 import AuthenticationService from "../services/authenticationService";
 import Dashboard from "./dashboard";
 import LoginPage from "./loginComponents/loginPage";
@@ -22,9 +22,13 @@ class App extends React.Component {
         }
         else {
             return (
-                <div>
-                    <LoginPage />
-                </div>
+               
+                <Switch>
+                    <Redirect exact from="/" to="/login" /> 
+                    <Route exact path="/login" component={LoginPage} />
+                    <Route exact path="/register" component={LoginPage} />
+                    
+                </Switch>
             );
         }
 

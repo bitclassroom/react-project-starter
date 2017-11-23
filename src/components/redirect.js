@@ -1,1 +1,1 @@
-export const redirect = (url)  => window.location.assign(`/#${url}`);
+export const redirect = (url)  => window.location.assign(url);
