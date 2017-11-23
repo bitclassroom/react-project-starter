@@ -46,7 +46,7 @@ class CommunicationService {
                 notifyGetRequest(response);
             })
             .catch(error => {
-                alert(error.response.status + " " + error.response.data.error.message);
+                // alert(error.response.status + " " + error.response.data.error.message);
             });
     }
 

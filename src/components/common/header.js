@@ -31,7 +31,7 @@ class Header extends Component {
                                     <p className="nav-link">People</p>
                                 </li>
                             </Link>
-                            <Link to="/people/:id">
+                            <Link to="/profile">
                                 <li className="nav-item" style={{ paddingLeft: "25px" }}>
                                     <p className="nav-link">Profile</p>
                                 </li>
