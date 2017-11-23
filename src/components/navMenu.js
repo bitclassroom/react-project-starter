@@ -1,15 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MainFeedPage from "./mainFeedPage";
+import comObj from "../services/communicationService";
 // import PostPage from "./postPage";
 import ProfilePage from "./profilePage";
+
 
 class NavMenu extends React.Component {
     constructor(props) {
         super(props);
 
     }
-
+    logout() {
+        comObj.clearID();
+       
+    }
 
     render() {
 
@@ -24,21 +29,21 @@ class NavMenu extends React.Component {
                         <ul>
                             <li>
                                 <Link to="/mainFeedPage">
-                                    <a href="#" src=""><i className="fa fa-home" aria-hidden="true"></i> FEED</a>
+                                     FEED
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/profilePage">
-                                    <a href="#" src="">PROFILE</a>
+                                   PROFILE
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/postPage">
-                                    <a href="#" src="">POSTS</a>
+                                    POSTS
                                 </Link>
                             </li>
                             <li>
-                                <a href="#" src=""><i className="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</a>
+                                <Link to="/login" onClick={this.logout} ><i className="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</Link>
                             </li>
                         </ul>
                     </div>

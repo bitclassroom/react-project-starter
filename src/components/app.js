@@ -10,13 +10,13 @@ class App extends React.Component {
         this.authenticationService = new AuthenticationService();
     }
 
-
+   
 
     render() {
         if (this.authenticationService.isAuthenticated()) {
             return (
                 <div>
-                    <MainPage />
+                    <MainPage  />
                 </div>
             );
         }
