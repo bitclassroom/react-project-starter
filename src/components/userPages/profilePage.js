@@ -38,7 +38,9 @@ class UserProfile extends Component {
             about: "",
             aboutShort: "",
             comments: 0,
-            posts: ""
+            posts: "",
+            newName: "",
+            newAbout: ""
         };
 
         this.getData = new DataService();
@@ -49,8 +51,11 @@ class UserProfile extends Component {
 
     initBind() {
         this.openModal = this.openModal.bind(this);
-        this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.errorHandler = this.errorHandler.bind(this);
+        this.collectNewAbout = this.collectNewAbout.bind(this);
+        this.collectNewName = this.collectNewName.bind(this);
+        this.updateProfile = this.updateProfile.bind(this);
     }
 
     componentDidMount() {
@@ -70,12 +75,37 @@ class UserProfile extends Component {
         this.setState({ modalIsOpen: true });
     }
 
-    afterOpenModal() {
-        this.subtitle.style.color = "#f00";
-    }
-
     closeModal() {
         this.setState({ modalIsOpen: false });
+    }
+
+    collectNewName(e){
+        const newName = e.target.value;
+
+        this.setState({
+            newName
+        });
+    }
+
+    collectNewAbout(e){
+        const newAbout = e.target.value;
+
+        this.setState({
+            newAbout
+        });
+    }
+
+    updateProfile(){
+        const newProfileData = {
+            newName: this.state.newName,
+            newAbout: this.state.newAbout
+        };
+        this.getData.updateProfileData(newProfileData, this.errorHandler);
+
+    }
+
+    errorHandler(error){
+        alert("ERROR");
     }
 
     render() {
@@ -104,20 +134,19 @@ class UserProfile extends Component {
                 <input type="button" id="editProfileData" onClick={this.openModal} value="Edit Profile" />
                 <Modal
                     isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
                 >
 
-                    <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-                    <button onClick={this.closeModal}>close</button>
-                    <div>I am a modal</div>
+                    <h2>Update Profile</h2>
                     <form>
-                        <input />
-                        <button>tab navigation</button>
-                        <button>stays</button>
-                        <button>inside</button>
-                        <button>the modal</button>
+                        <div>
+                            <p>Name </p>
+                            <input type="text" value={this.state.newName} onChange ={this.collectNewName} placeholder="Please enter a new name"/>
+                        </div>
+                        <textarea value={this.state.newAbout} onChange={this.collectNewAbout} placeholder="Please tell us something about yourself" rows="5"></textarea>
+                        <input type="button" value="Update" onClick={this.updateProfile} />
+                        <input type="button" value="Close" onClick={this.closeModal} />
                     </form>
                 </Modal>
             </div>

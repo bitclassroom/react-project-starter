@@ -50,6 +50,20 @@ class CommunicationService {
             });
     }
 
+    putRequest(address, notifyGetRequest) {
+        const requestURL = `${BASE_URL}/${address}`;
+
+        axios.put(requestURL, {
+            headers: this.createHeaders()
+        })
+            .then(response => {
+                notifyGetRequest(response);
+            })
+            .catch(error => {
+                // alert(error.response.status + " " + error.response.data.error.message);
+            });
+    }
+
 }
 
 export default CommunicationService;
