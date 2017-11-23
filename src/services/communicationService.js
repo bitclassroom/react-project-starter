@@ -64,4 +64,5 @@ class CommunicationService {
         }
     }
 }
-export default CommunicationService;
+const comObj = new CommunicationService();
+export default comObj;

@@ -1,8 +1,8 @@
-import CommunicationService from "./communicationService";
+import comObj from "./communicationService";
 import { redirect } from "../components/redirect";
 class AuthenticationService {
     constructor() {
-        this.comObj = new CommunicationService();
+        
         this.bindThisAndThats();
     }
     bindThisAndThats(){
@@ -12,16 +12,17 @@ class AuthenticationService {
         this.succesRegister = this.successRegister.bind(this);
     }
     successLogin(a) {
-        this.comObj.setID(a.sessionId);
-        redirect("/");
+        comObj.setID(a.sessionId);
+        console.log(a);
+        // redirect("/");
     }
     failLogin(a) {
         console.log("Sranje si!");
         console.log(a);
     }
     login(dataObj) {
-        if (this.comObj.getID()) { alert("Vec postoji ulogovan korisnik"); return; }
-        this.comObj.post("login", dataObj, this.successLogin, this.failLogin);
+        if (comObj.getID()) { alert("Vec postoji ulogovan korisnik"); return; }
+        comObj.post("login", dataObj, this.successLogin, this.failLogin);
         
     }
     successRegister(a){
@@ -33,10 +34,10 @@ class AuthenticationService {
         
     }
     register(dataObj, callbackFail) {
-        this.comObj.post("register", dataObj, this.succesRegister, callbackFail);
+        comObj.post("register", dataObj, this.succesRegister, callbackFail);
     }
     logout() {
-        this.comObj.clearID();
+        comObj.clearID();
         redirect("/");
     }
     isAuthenticated() {
