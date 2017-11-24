@@ -6,5 +6,6 @@ export default class Profile {
         this.avatarUrl = data.avatarUrl;
         this.commentsCount = data.commentsCount;
         this.postsCount = data.postsCount;
+        this.email = data.email;
     }
 }

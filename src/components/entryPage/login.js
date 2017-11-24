@@ -13,7 +13,9 @@ class Login extends React.Component {
             passInput: "",
             errorMessage: "The password has to have at least 4 characters",
             isThereError: false,
-            isDisabled: true
+            isDisabled: true,
+            error: "",
+            isThereRealError: false
         };
 
         this.authService = new AuthenticationService();
@@ -42,7 +44,8 @@ class Login extends React.Component {
         const passInput = event.target.value;
 
         this.setState({
-            passInput
+            passInput,
+            isThereRealError: false
         });
 
         if (passInput.length < 4) {
@@ -75,7 +78,12 @@ class Login extends React.Component {
                 password: passInput
             };
 
-            this.authService.login(userData);
+            this.authService.login(userData, (error) =>{
+                this.setState({
+                    isThereRealError: true,
+                    error: error.response.code
+                });
+            });
 
             this.setState({
                 emailInput: "",
@@ -108,6 +116,8 @@ class Login extends React.Component {
                     <br />
                     <button className={`btn btn-primary ${clName}`} id="loginButton" style={{ marginLeft: "83%", borderRadius: "5px", width: "80px", position: "relative", top: "130px" }}>Login</button>
                     <p id="error"> {this.state.isThereError ? this.state.errorMessage : ""} </p>
+                    <p>{this.state.isThereRealError ? this.state.error : ""}</p>
+
                 </form>
             </div>
         );

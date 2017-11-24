@@ -18,16 +18,19 @@ class AuthenticationService {
         this.isUserAuthenticated = this.isUserAuthenticated.bind(this);
     }
 
-    login(userData) {
+    login(userData, handleError) {
         this.commService.postRequest("login", userData, (data) => {
             this.storeSession(data.data.sessionId);
             this.redirect.redirect("feed");
+        }, (error) =>{
+            handleError(error);
         });
     }
 
-    register(userData) {
+    register(userData, handleError) {
         this.commService.postRequest("register", userData, (data) => {
-            console.log(data);
+        }, (error) => {
+            handleError(error);
         });
     }
 

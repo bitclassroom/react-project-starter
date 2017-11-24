@@ -16,12 +16,12 @@ class DataService {
 
 
     updateProfileData(newData, errorHandler){
-        this.communication.putRequest("profile", newData, (response) =>{
+        this.communication.putRequest("Profiles", newData, (response) =>{
             if(response.status >= 200 && response.status < 400) {
                 window.location.reload();
-            } else {
-                errorHandler(error);
-            }
+            };
+        }, (error) => {
+            errorHandler(error);
         });
     }
 }

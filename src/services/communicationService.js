@@ -21,7 +21,7 @@ class CommunicationService {
         };
     }
 
-    postRequest(address, body, notifyPostRequest) {
+    postRequest(address, body, notifyPostRequest, handleError) {
 
         const requestURL = `${BASE_URL}/${address}`;
 
@@ -32,11 +32,11 @@ class CommunicationService {
                 notifyPostRequest(response);
             })
             .catch(error => {
-                alert(error.response.status + " " + error.response.data.error.message);
+                handleError(error);
             });
     }
 
-    getRequest(address, notifyGetRequest) {
+    getRequest(address, notifyGetRequest, handleError) {
         const requestURL = `${BASE_URL}/${address}`;
 
         axios.get(requestURL, {
@@ -46,21 +46,21 @@ class CommunicationService {
                 notifyGetRequest(response);
             })
             .catch(error => {
-                // alert(error.response.status + " " + error.response.data.error.message);
+                handleError(error);
             });
     }
 
-    putRequest(address, notifyGetRequest) {
+    putRequest(address, data, notifyGetRequest, handleError) {
         const requestURL = `${BASE_URL}/${address}`;
 
-        axios.put(requestURL, {
+        axios.put(requestURL, data, {
             headers: this.createHeaders()
         })
             .then(response => {
                 notifyGetRequest(response);
             })
             .catch(error => {
-                // alert(error.response.status + " " + error.response.data.error.message);
+                handleError(error);
             });
     }
 

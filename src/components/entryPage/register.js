@@ -13,7 +13,9 @@ class Register extends React.Component {
             passwordString: "",
             usernameString: "",
             confirmedPassword: "",
-            isDisabled: true
+            isDisabled: true,
+            error: "",
+            isThereError: false            
         };
 
         this.bindInit();
@@ -82,14 +84,16 @@ class Register extends React.Component {
 
         if (validateChecker) {
             delete userData.confirmedPassword;
-            this.authentication.register(userData);
+            this.authentication.register(userData, (error) => {
+                this.setState({
+                    isThereError: true,
+                    error: error.response.status + " " + error.response.data.error.message
+                });
+            });
             this.redirection.redirect("");
         }
     }
-
         
-    
-
     render() {
         const clName = this.state.isDisabled ? "disabled" : "";
 
@@ -117,6 +121,7 @@ class Register extends React.Component {
                     <input type="password" id="repeatedPass" onChange={this.passwordConfirmedHandler} value={event.target.value} placeholder="Min 6 characters" style={{ marginBottom: "15px", width: "100%" }} />
                     <br />
                     <button className={`btn btn-primary ${clName}`} id="registerButton" onClick={this.allRegisterData} style={{ marginLeft: "83%", borderRadius: "5px", width: "80px" }}>Register</button>
+                    <p>{this.state.isThereError ? this.state.error : ""}</p>
                 </form>
             </div>
         );
