@@ -29,9 +29,7 @@ class Register extends React.Component {
         this.setState({
             [event.target.name]: event.target.value,
             badName: "",
-
             badUsername: "",
-
             badEmail: "",
             badPass: "",
             badSecondPass: "",
@@ -39,9 +37,7 @@ class Register extends React.Component {
         });
 
     }
-
     serverErrorHandler(e) {
-
 
         this.setState({
             badUsername: e.response.data.error.message
@@ -52,10 +48,8 @@ class Register extends React.Component {
         const { username, name, email, password1, password2 } = this.state;
 
         event.preventDefault();
-
         if (name === "") { this.setState({ badName: "This field is required" }); return; }
         if (username === "") { this.setState({ badUsername: "This field is required" }); return; }
-
         if (!validateEmail(email)) { this.setState({ badEmail: "Email address is bad!" }); return; }
         if (password1.length < 6) { this.setState({ badPass: "Password must be at least 6 characters long" }); return; }
         if (password1 === password2) {
@@ -78,7 +72,6 @@ class Register extends React.Component {
 
         const { name, email, password1, password2, username, badEmail, badPass, badSecondPass, badUsername, badName } = this.state;
 
-
         return (
             <div className="body-class">
                 <div className="outer__wrapper">
@@ -86,7 +79,6 @@ class Register extends React.Component {
                         <div className="h1__main-page">
                             <h1>REGISTER TO BITBOOK</h1>
                         </div>
-
                         <div className="p__main-page">
                             <p>
                                 Beogradski institut za tehnologiju – BIT je škola za programiranje osnovana u Beogradu, s ciljem da svoje polaznike uči praktičnim i primenljivim znanjima u IT industriji. Tehnički deo programa je FrontEnd Stack, najčešće tražen od strane poslodavaca. Pored tehničkog obrazovanja, u BITu se uči i kako funkcioniše IT industrija i kako pronaći svoje mesto u njoj.
@@ -124,23 +116,9 @@ class Register extends React.Component {
                                     </div>
                                     <div style={{ "color": "red" }}> {badSecondPass} </div>
                                     <button className="form-btn" onClick={this.onClickRegister} type="submit">Register</button>
-
-
                                 </div>
-                                <div className="field-wrap">
-
-                                    <input name="password1" type="text" value={password1} onChange={this.handleChange} placeholder="Password" />
-                                </div>
-                                <div style={{ "color": "red" }}> {badPass} </div>
-                                <div className="field-wrap">
-
-                                    <input name="password2" type="text" value={password2} onChange={this.handleChange} placeholder="Repeat password" />
-                                </div>
-                                <div style={{ "color": "red" }}> {badSecondPass} </div>
-                                <button onClick={this.onClickRegister} type="submit">Register</button>
-                            </div>
-                        </form>
-
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

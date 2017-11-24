@@ -2,10 +2,10 @@ import comObj from "./communicationService";
 import { redirect } from "../components/redirect";
 class AuthenticationService {
     constructor() {
-        
+
         this.bindThisAndThats();
     }
-    bindThisAndThats(){
+    bindThisAndThats() {
         this.login = this.login.bind(this);
         this.register = this.register.bind(this);
         this.successLogin = this.successLogin.bind(this);
@@ -14,7 +14,7 @@ class AuthenticationService {
     successLogin(a) {
         comObj.setID(a.sessionId);
         console.log(a);
-        // redirect("/");
+        redirect("/");
     }
     failLogin(a) {
         console.log("Sranje si!");
@@ -23,15 +23,15 @@ class AuthenticationService {
     login(dataObj) {
         if (comObj.getID()) { alert("Vec postoji ulogovan korisnik"); return; }
         comObj.post("login", dataObj, this.successLogin, this.failLogin);
-        
+
     }
-    successRegister(a){
+    successRegister(a) {
         redirect("/");
-        
+
     }
-    failRegister(error){
+    failRegister(error) {
         console.log(error.response.data.error.message);
-        
+
     }
     register(dataObj, callbackFail) {
         comObj.post("register", dataObj, this.succesRegister, callbackFail);
