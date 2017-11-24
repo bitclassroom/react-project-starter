@@ -19,6 +19,13 @@
     background-color: rgb(104, 187, 231);
 } 
 
+.profileButton {
+    margin: 30px 50px;
+}
+
+.loginProfileButton {
+    margin: 10px 0px 30px 0;
+}
 
 
 

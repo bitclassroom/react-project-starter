@@ -6,25 +6,21 @@ import DataService from "../../services/dataService";
 import RedirectionService from "../../services/redirectionService";
 
 const imgStyle = {
-    height: "300px",
-    border: "1px solid black",
-    borderRadius: "150px",
-    margin: "0 auto",
-    marginTop: "30px"
+    borderRadius: "30px"
+
 };
 
-const profileStyle = {
-    float: "none",
-    margin: "0 auto",
-    maxWidth: "500px",
-    border: "1px solid black",
+const cardStyle = {
+    width: "600px",
+    padding: "40px",
+    marginTop: "60px",
     textAlign: "center",
-    position: "relative"
+    borderRadius: "30px",
 };
+
 
 const nameStyle = {
     textAlign: "center",
-    color: "red"
 };
 
 class UserProfile extends Component {
@@ -61,7 +57,7 @@ class UserProfile extends Component {
         this.collectNewAbout = this.collectNewAbout.bind(this);
         this.collectNewName = this.collectNewName.bind(this);
         this.updateProfile = this.updateProfile.bind(this);
-        this.collectNewAboutShort =this.collectNewAboutShort.bind(this);
+        this.collectNewAboutShort = this.collectNewAboutShort.bind(this);
         this.collectNewEmail = this.collectNewEmail.bind(this);
         this.collectNewAvatarUrl = this.collectNewAvatarUrl.bind(this);
     }
@@ -161,28 +157,31 @@ class UserProfile extends Component {
 
     render() {
         return (
-            <div style={profileStyle}>
+            <div className="container">
                 <div className="row">
-                    <img src={this.state.avatar} style={imgStyle} />
+
+                    <div className=" mx-auto">
+
+                        <div className="card" style={cardStyle}>
+
+                            <img src={this.state.avatar}  className="card-img-top" style={imgStyle}/>
+                            <div className="card-block">
+                                <h2 className="card-title">{this.state.name}</h2>
+                                <input type="button" id="editProfileData" onClick={this.openModal} value="Edit Profile" className="btn btn-info loginProfileButton " />
+                                <p className="card-text">{this.state.aboutShort}</p>
+                                <p className="card-text">{this.state.about}</p>
+                                <button className="btn btn-success profileButton">Posts: {this.state.posts}</button>
+                                <button className="btn btn-success profileButton">Comments:  {this.state.comments}</button>
+
+                            </div>    
+
+                        </div>                
+
+                    </div>
+
+
                 </div>
 
-                <div className="" style={nameStyle}>
-                    <h2>{this.state.name}</h2>
-                </div>
-
-                <div>
-                    <p>{this.state.aboutShort}</p>
-                    <p>{this.state.about}</p>
-                </div>
-
-                <div className="">
-                    <button>Posts: {this.state.posts}</button>
-                    <button>Comments:  {this.state.comments}</button>
-                </div>
-
-                <br />
-
-                <input type="button" id="editProfileData" onClick={this.openModal} value="Edit Profile" />
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
