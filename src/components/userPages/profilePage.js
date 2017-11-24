@@ -6,16 +6,22 @@ import DataService from "../../services/dataService";
 import RedirectionService from "../../services/redirectionService";
 
 const imgStyle = {
-    borderRadius: "30px"
+    borderRadius: "10px 30px 10px 30px",
+    width: "60%",
+    margin: "0 auto",
+    border: "2px solid white"
+
 
 };
 
 const cardStyle = {
-    width: "600px",
-    padding: "40px",
-    marginTop: "60px",
+    width: "500px",
+    padding: "20px",
+    margin: "40px 0",
     textAlign: "center",
-    borderRadius: "30px",
+    borderRadius: "10px 130px 10px 130px",
+    backgroundColor: "rgba(116, 162, 208, 0.2)",
+    boxShadow: "-6px 7px 34px 3px rgba(0,0,0,0.34)"
 };
 
 
@@ -162,7 +168,7 @@ class UserProfile extends Component {
 
                     <div className=" mx-auto">
 
-                        <div className="card" style={cardStyle}>
+                        <div className="card " style={cardStyle}>
 
                             <img src={this.state.avatar}  className="card-img-top" style={imgStyle}/>
                             <div className="card-block">
@@ -187,8 +193,12 @@ class UserProfile extends Component {
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
                 >
-
                     <h2>Update Profile</h2>
+                    <div className="row">
+                        <div className="col-2">
+                        </div>
+                    <div className="card col" style={cardStyle} >
+                   
                     <form>
                         <div>
                             <input type="text" value={this.state.newName} onChange={this.collectNewName} placeholder="Please enter a new name" />
@@ -201,6 +211,10 @@ class UserProfile extends Component {
                         <input type="button" value="Close" onClick={this.closeModal} />
                         <p>{this.state.isThereError ? this.state.error : ""}</p>
                     </form>
+                    </div>
+                    <div className="col-2">
+                        </div>
+                    </div>
                 </Modal>
             </div>
         );

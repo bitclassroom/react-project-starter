@@ -20,12 +20,32 @@
 } 
 
 .profileButton {
-    margin: 30px 50px;
+    margin: 30px 20px;
 }
 
 .loginProfileButton {
+    width: 60%;
     margin: 10px 0px 30px 0;
+    transition-property: all;
+    transition-duration: 5s;
+    transition-timing-function: linear;
+    
 }
+
+.loginProfileButton:hover {
+    width: 90%;
+}
+
+
+.modalCard {
+    margin-top: 50px; 
+   border-radius: 10px 30px 10px 30px;
+   background-color: rgba(116, 162, 208, 0.2);
+   padding: 20px;
+  
+}
+
+
 
 
 
