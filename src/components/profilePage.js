@@ -1,4 +1,5 @@
 import React from "react";
+import dataObj from "../services/dataService";
 // MainPage = Feed Page
 
 class ProfilePage extends React.Component {
@@ -7,6 +8,7 @@ class ProfilePage extends React.Component {
     }
 
     render() {
+        dataObj.getProfile();
         return (
             <div className="profile">
                 <div className="container">
