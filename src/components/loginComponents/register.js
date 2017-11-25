@@ -12,7 +12,8 @@ class Register extends React.Component {
     bindThisAndThats() {
         this.onClickRegister = this.onClickRegister.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.serverErrorHandler = this.serverErrorHandler.bind(this);
+        this.failRegister = this.failRegister.bind(this);
+        this.succesRegister = this.successRegister.bind(this);
     }
     initialState() {
         return {
@@ -37,7 +38,11 @@ class Register extends React.Component {
         });
 
     }
-    serverErrorHandler(e) {
+    successRegister(a) {
+        redirect("/");
+
+    }
+    failRegister(e) {
 
         this.setState({
             badUsername: e.response.data.error.message
@@ -48,8 +53,8 @@ class Register extends React.Component {
         const { username, name, email, password1, password2 } = this.state;
 
         event.preventDefault();
-        if (name === "") { this.setState({ badName: "This field is required" }); return; }
-        if (username === "") { this.setState({ badUsername: "This field is required" }); return; }
+        if (name === "") { this.setState({ badName: "Name field is required" }); return; }
+        if (username === "") { this.setState({ badUsername: "Username field is required" }); return; }
         if (!validateEmail(email)) { this.setState({ badEmail: "Email address is bad!" }); return; }
         if (password1.length < 6) { this.setState({ badPass: "Password must be at least 6 characters long" }); return; }
         if (password1 === password2) {
@@ -60,7 +65,7 @@ class Register extends React.Component {
                 "email": email
             };
 
-            this.authentication.register(dataObj, this.serverErrorHandler);
+            this.authentication.register(dataObj, this.succesRegister, this.failRegister);
         }
         else {
             this.setState({ badSecondPass: "Passwords do not match" });

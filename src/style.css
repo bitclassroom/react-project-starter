@@ -73,7 +73,8 @@ a {
     max-width: 75%; }
     .intro .outer__wrapper .inner__wrapper--left {
       float: left;
-      max-width: 50%; }
+      max-width: 40%;
+      margin-right: 5% }
       .intro .outer__wrapper .inner__wrapper--left .h1__main-page {
         font-size: 2rem;
         padding-top: 50px; }

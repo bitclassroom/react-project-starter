@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MainFeedPage from "./mainFeedPage";
-import comObj from "../services/communicationService";
+import {clearID} from "../services/sessionStorageManipulation";
 // import PostPage from "./postPage";
 import ProfilePage from "./profilePage";
 
@@ -12,8 +12,7 @@ class NavMenu extends React.Component {
 
     }
     logout() {
-        comObj.clearID();
-       
+        clearID();
     }
 
     render() {

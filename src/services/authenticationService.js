@@ -8,33 +8,15 @@ class AuthenticationService {
     bindThisAndThats() {
         this.login = this.login.bind(this);
         this.register = this.register.bind(this);
-        this.successLogin = this.successLogin.bind(this);
-        this.succesRegister = this.successRegister.bind(this);
+       
     }
-    successLogin(a) {
-        comObj.setID(a.sessionId);
-        console.log(a);
-        redirect("/");
-    }
-    failLogin(a) {
-        console.log("Sranje si!");
-        console.log(a);
-    }
-    login(dataObj) {
+    login(dataObj, callbackSucces, callbackFail) {
         if (comObj.getID()) { alert("Vec postoji ulogovan korisnik"); return; }
-        comObj.post("login", dataObj, this.successLogin, this.failLogin);
+        comObj.post("login", dataObj, callbackSucces, callbackFail);
 
     }
-    successRegister(a) {
-        redirect("/");
-
-    }
-    failRegister(error) {
-        console.log(error.response.data.error.message);
-
-    }
-    register(dataObj, callbackFail) {
-        comObj.post("register", dataObj, this.succesRegister, callbackFail);
+    register(dataObj, callbackSucces, callbackFail) {
+        comObj.post("register", dataObj, callbackSucces, callbackFail);
     }
     logout() {
         comObj.clearID();
@@ -42,6 +24,16 @@ class AuthenticationService {
     }
     isAuthenticated() {
         return !!sessionStorage.getItem("sessionID");
+    }
+    getID() {
+        return sessionStorage.getItem(this.key);
+
+    }
+    setID(item){
+        sessionStorage.setItem(this.key, item);
+    }
+    clearID(){
+        sessionStorage.clear();
     }
 
 }

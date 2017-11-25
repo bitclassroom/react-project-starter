@@ -1,14 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthenticationService from "../../services/authenticationService";
-
+import { redirect } from "../redirect";
+import {setID} from "../../services/sessionStorageManipulation";
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.authentication = new AuthenticationService();
         this.state = this.initialState();
+        this.bindThisAndThats();
+    }      
+        
+    bindThisAndThats(){
         this.changeState = this.changeState.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
+        this.failLogin = this.failLogin.bind(this);
     }
     initialState() {
         return {
@@ -19,17 +25,35 @@ class Login extends React.Component {
 
     changeState(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            badUsernameOrPassword: ""
+        });
+    }
+    
+    successLogin(a) {
+        setID (a.sessionId);
+        redirect("/");
+    }
+    failLogin(e) {
+        this.setState({
+            badUsernameOrPassword: e.response.data.error.message
         });
     }
 
     onClickLogin(event) {
+        const {username, password} = this.state;
         event.preventDefault();
+        if( username === "" || password === ""){
+            this.setState({
+                badUsernameOrPassword: "These fields must not be empty"
+            });
+            return;
+        }
         let dataObj = {
-            username: this.state.username,
-            password: this.state.password
+            "username": username,
+            "password": password
         };
-        this.authentication.login(dataObj);
+        this.authentication.login(dataObj, this.successLogin, this.failLogin);
     }
     // onKeyDown(event) {
     //     event.preventDefault();
@@ -74,6 +98,8 @@ class Login extends React.Component {
 
                                         <input name="username" className="form-control" required type="text" value={this.state.username} placeholder="Username" onChange={this.changeState} />
                                     </div>
+                                    <div style={{ "color": "red" }}>{this.state.badUsernameOrPassword}</div>
+
                                     <div className="field-wrap">
 
                                         <input type="password" name="password" className="form-control" required value={this.state.password} placeholder="Password" onChange={this.changeState} />
