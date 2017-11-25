@@ -1,12 +1,17 @@
 import comObj from "./communicationService";
-import ProfileDTO  from "./profileDTO";
+import ProfileDTO from "./profileDTO";
 class DataService {
-    constructor(){
-        
+    constructor() {
+
     }
-    
-    getProfile(callback, failCallback){
-        comObj.get("profile", a=> callback(new ProfileDTO(a)), a=> failCallback(a));
+
+    getProfile(callback, failCallback) {
+        comObj.get("profile", a => callback(new ProfileDTO(a)), a => failCallback(a));
+    }
+    editProfile(dataObj, callbackSucces, callbackFail) {
+        comObj.put("Profiles", dataObj, a => this.getProfile(callbackSucces, callbackFail),
+            callbackFail);
+
     }
 }
 
