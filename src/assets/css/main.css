@@ -46,7 +46,8 @@
 
 .loginProfileButton {
     width: 60%;
-    margin: 10px 0px 30px 0;   
+    margin: 10px 0px 30px 0;  
+    box-shadow: -12px 11px 34px -1px rgba(44,62,80,0.34); 
 }
 
 .loginProfileButton:hover {
@@ -60,9 +61,9 @@
 }
 
 .updateProfileCloseButton {
-    position: absolute;
-    top: 20px;
-    right: 30px;
+   float: right;
+   margin-bottom: 30px;
+   width: 20%;
 }
 
 .updateProfileCloseButton:hover {
@@ -70,10 +71,8 @@
 }
 
 .updateProfileUpdateButton {
-    display: block;
     width: 30%;
-    transition: width 0.5s;
-    transition-timing-function: linear;
+ 
 }
 
 .updateProfileUpdateButton:hover {

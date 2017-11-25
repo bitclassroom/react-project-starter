@@ -34,17 +34,17 @@ const loginStyle = {
 
 const modalStyle = {
     content: {
-        height: "90%", 
+        height: "90%",
         overlfow: "scroll",
         backgroundImage: "url(https://wallpaperlayer.com/img/2015/6/gaussian-blur-wallpaper-3225-3429-hd-wallpapers.jpg)"
     }
-   
+
 };
 
 const modalCardStyle = {
     backgroundColor: "rgba(116, 162, 208, 0.3)",
-    padding: "60px 30px 30px 30px",
-    margin: "40px 0",
+    padding: "30px",
+    margin: "50px 0",
     borderRadius: "10px 10px 10px 10px",
     positon: "relative"
 };
@@ -221,10 +221,10 @@ class UserProfile extends Component {
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
-                
+
                     style={modalStyle}
-                >   
-                    
+                >
+
                     <nav className="navbar navbar-expand-lg navbar-light modalNavColor">
                         <h2 className="updateProfileHeading">Update Profile</h2>
                     </nav>
@@ -235,6 +235,8 @@ class UserProfile extends Component {
                         <div className="col" style={modalCardStyle} >
 
                             <form>
+                                <input type="button" value="Close" onClick={this.closeModal} className="updateProfileCloseButton btn btn-success btn-lg" style={updateButtonStyle} />
+
                                 <div>
                                     <input type="text" value={this.state.newName} onChange={this.collectNewName} placeholder="Please enter a new name" className="updateProfileForm form-control form-control-lg" />
                                     <input type="email" value={this.state.newEmail} onChange={this.collectNewEmail} placeholder={`Current email: ${this.state.email}`} className="updateProfileForm form-control form-control-lg" />
@@ -243,7 +245,6 @@ class UserProfile extends Component {
                                 </div>
                                 <textarea value={this.state.newAbout} onChange={this.collectNewAbout} placeholder="Please tell us something about yourself" rows="5" className="updateProfileForm form-control"></textarea>
                                 <input type="button" value="Update" onClick={this.updateProfile} className="updateProfileUpdateButton btn btn-info btn-lg" style={updateButtonStyle} />
-                                <input type="button" value="Close" onClick={this.closeModal} className="updateProfileCloseButton btn btn-success btn-lg" style={updateButtonStyle} />
                                 <p>{this.state.isThereError ? this.state.error : ""}</p>
                             </form>
                         </div>
