@@ -8,6 +8,13 @@ class ProfileDTO{
         this._avatarUrl = input.avatarUrl;
         this._postsCount = input.postsCount;
         this._commentsCount = input.commentsCount;
+        this._userId = input.userId;
+    }
+    get userId(){
+        return this._userId;
+    }
+    set userId(a){
+        this._userId=a;
     }
     get name() {
         return this._name;
