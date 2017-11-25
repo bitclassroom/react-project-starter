@@ -32,6 +32,15 @@ const loginStyle = {
     transitionTimingFunction: "linear"
 };
 
+const modalStyle = {
+    content: {
+        height: "90%", 
+        overlfow: "scroll",
+        backgroundImage: "url(https://wallpaperlayer.com/img/2015/6/gaussian-blur-wallpaper-3225-3429-hd-wallpapers.jpg)"
+    }
+   
+};
+
 const modalCardStyle = {
     backgroundColor: "rgba(116, 162, 208, 0.3)",
     padding: "60px 30px 30px 30px",
@@ -39,6 +48,7 @@ const modalCardStyle = {
     borderRadius: "10px 10px 10px 10px",
     positon: "relative"
 };
+
 const updateButtonStyle = {
     transition: "width 0.5s",
     transitionTimingFunction: "linear"
@@ -211,8 +221,11 @@ class UserProfile extends Component {
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
-                >
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                
+                    style={modalStyle}
+                >   
+                    
+                    <nav className="navbar navbar-expand-lg navbar-light modalNavColor">
                         <h2 className="updateProfileHeading">Update Profile</h2>
                     </nav>
 
