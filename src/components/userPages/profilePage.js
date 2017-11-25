@@ -21,9 +21,15 @@ const cardStyle = {
     textAlign: "center",
     borderRadius: "10px 130px 10px 130px",
     backgroundColor: "rgba(116, 162, 208, 0.2)",
-    boxShadow: "-6px 7px 34px 3px rgba(0,0,0,0.34)"
+    boxShadow: "-12px 11px 34px -1px rgba(44,62,80,0.34)"
 };
 
+const modalCardStyle = {
+    backgroundColor: "rgba(116, 162, 208, 0.3)",
+    padding: "20px",
+    margin: "40px 0",
+    borderRadius: "10px 60px 10px 60px"
+}
 
 const nameStyle = {
     textAlign: "center",
@@ -197,7 +203,7 @@ class UserProfile extends Component {
                     <div className="row">
                         <div className="col-2">
                         </div>
-                    <div className="card col" style={cardStyle} >
+                    <div className="card col" style={modalCardStyle} >
                    
                     <form>
                         <div>
