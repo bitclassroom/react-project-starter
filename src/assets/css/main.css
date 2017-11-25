@@ -19,30 +19,62 @@
     background-color: rgb(104, 187, 231);
 } 
 
+.navColor {
+    background-color: rgba(65, 105, 144, 1);
+}
+
+.navLink:hover {
+    font-weight: bold;
+}
+
+.profileName {
+    font-weight: bold;
+    color: rgba(44, 62, 80, 0.9)
+    
+}
+
 .profileButton {
     margin: 30px 20px;
 }
 
 .loginProfileButton {
     width: 60%;
-    margin: 10px 0px 30px 0;
-    transition-property: all;
-    transition-duration: 5s;
-    transition-timing-function: linear;
-    
+    margin: 10px 0px 30px 0;   
 }
 
 .loginProfileButton:hover {
     width: 90%;
 }
 
+.updateProfileForm {
+    display: block;
+    width: 60%;
+    margin: 30px auto;
+}
 
-.modalCard {
-    margin-top: 50px; 
-   border-radius: 10px 30px 10px 30px;
-   background-color: rgba(116, 162, 208, 0.2);
-   padding: 20px;
-  
+.updateProfileCloseButton {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.updateProfileCloseButton:hover {
+    width: 40%;
+}
+
+.updateProfileUpdateButton {
+    display: block;
+    width: 30%;
+    transition: width 0.5s;
+    transition-timing-function: linear;
+}
+
+.updateProfileUpdateButton:hover {
+    width: 60%; 
+}
+
+.updateProfileHeading {
+    color: rgba(67, 93, 119,0.9);
 }
 
 

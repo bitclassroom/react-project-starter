@@ -6,30 +6,43 @@ import DataService from "../../services/dataService";
 import RedirectionService from "../../services/redirectionService";
 
 const imgStyle = {
-    borderRadius: "10px 30px 10px 30px",
+    borderRadius: "50px",
     width: "60%",
-    margin: "0 auto",
-    border: "2px solid white"
+    margin: "10px auto",
+    padding: "10px",
+    border: "1px solid rgba(178,215,251,0.2)",
+    boxShadow: "-12px 11px 34px -1px rgba(44,62,80,0.34)"
 
 
 };
 
 const cardStyle = {
-    width: "500px",
+    width: "70%px",
     padding: "20px",
-    margin: "40px 0",
+    margin: "60px 0",
     textAlign: "center",
     borderRadius: "10px 130px 10px 130px",
     backgroundColor: "rgba(116, 162, 208, 0.2)",
     boxShadow: "-12px 11px 34px -1px rgba(44,62,80,0.34)"
 };
 
+const loginStyle = {
+    transitionProperty: "width",
+    transitionDuration: "0.5s",
+    transitionTimingFunction: "linear"
+};
+
 const modalCardStyle = {
     backgroundColor: "rgba(116, 162, 208, 0.3)",
-    padding: "20px",
+    padding: "60px 30px 30px 30px",
     margin: "40px 0",
-    borderRadius: "10px 60px 10px 60px"
-}
+    borderRadius: "10px 10px 10px 10px",
+    positon: "relative"
+};
+const updateButtonStyle = {
+    transition: "width 0.5s",
+    transitionTimingFunction: "linear"
+};
 
 const nameStyle = {
     textAlign: "center",
@@ -176,18 +189,18 @@ class UserProfile extends Component {
 
                         <div className="card " style={cardStyle}>
 
-                            <img src={this.state.avatar}  className="card-img-top" style={imgStyle}/>
+                            <img src={this.state.avatar} className="card-img-top" style={imgStyle} />
                             <div className="card-block">
-                                <h2 className="card-title">{this.state.name}</h2>
-                                <input type="button" id="editProfileData" onClick={this.openModal} value="Edit Profile" className="btn btn-info loginProfileButton " />
+                                <h2 className="card-title profileName ">{this.state.name}</h2>
+                                <input type="button" id="editProfileData" onClick={this.openModal} value="Edit Profile" className="btn btn-info btn-lg loginProfileButton " style={loginStyle} />
                                 <p className="card-text">{this.state.aboutShort}</p>
                                 <p className="card-text">{this.state.about}</p>
-                                <button className="btn btn-success profileButton">Posts: {this.state.posts}</button>
-                                <button className="btn btn-success profileButton">Comments:  {this.state.comments}</button>
+                                <button className="btn btn-success btn-lg profileButton">Posts: {this.state.posts}</button>
+                                <button className="btn btn-success btn-lg profileButton">Comments:  {this.state.comments}</button>
 
-                            </div>    
+                            </div>
 
-                        </div>                
+                        </div>
 
                     </div>
 
@@ -199,26 +212,29 @@ class UserProfile extends Component {
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
                 >
-                    <h2>Update Profile</h2>
+                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                        <h2 className="updateProfileHeading">Update Profile</h2>
+                    </nav>
+
                     <div className="row">
                         <div className="col-2">
                         </div>
-                    <div className="card col" style={modalCardStyle} >
-                   
-                    <form>
-                        <div>
-                            <input type="text" value={this.state.newName} onChange={this.collectNewName} placeholder="Please enter a new name" />
-                            <input type="text" value={this.state.newEmail} onChange={this.collectNewEmail} placeholder={`Current email: ${this.state.email}`} />
-                            <input type="text" value={this.state.newAboutShort} onChange={this.collectNewAboutShort} placeholder="Please enter a short description" />
-                            <input type="text" value={this.state.newAvatarUrl} onChange={this.collectNewAvatarUrl} placeholder="Please enter new avatar url" />
+                        <div className="col" style={modalCardStyle} >
+
+                            <form>
+                                <div>
+                                    <input type="text" value={this.state.newName} onChange={this.collectNewName} placeholder="Please enter a new name" className="updateProfileForm form-control form-control-lg" />
+                                    <input type="email" value={this.state.newEmail} onChange={this.collectNewEmail} placeholder={`Current email: ${this.state.email}`} className="updateProfileForm form-control form-control-lg" />
+                                    <input type="text" value={this.state.newAboutShort} onChange={this.collectNewAboutShort} placeholder="Please enter a short description" className="updateProfileForm form-control form-control-lg" />
+                                    <input type="text" value={this.state.newAvatarUrl} onChange={this.collectNewAvatarUrl} placeholder="Please enter new avatar url" className="updateProfileForm form-control form-control-lg" />
+                                </div>
+                                <textarea value={this.state.newAbout} onChange={this.collectNewAbout} placeholder="Please tell us something about yourself" rows="5" className="updateProfileForm form-control"></textarea>
+                                <input type="button" value="Update" onClick={this.updateProfile} className="updateProfileUpdateButton btn btn-info btn-lg" style={updateButtonStyle} />
+                                <input type="button" value="Close" onClick={this.closeModal} className="updateProfileCloseButton btn btn-success btn-lg" style={updateButtonStyle} />
+                                <p>{this.state.isThereError ? this.state.error : ""}</p>
+                            </form>
                         </div>
-                        <textarea value={this.state.newAbout} onChange={this.collectNewAbout} placeholder="Please tell us something about yourself" rows="5"></textarea>
-                        <input type="button" value="Update" onClick={this.updateProfile} />
-                        <input type="button" value="Close" onClick={this.closeModal} />
-                        <p>{this.state.isThereError ? this.state.error : ""}</p>
-                    </form>
-                    </div>
-                    <div className="col-2">
+                        <div className="col-2">
                         </div>
                     </div>
                 </Modal>
