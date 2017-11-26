@@ -30,25 +30,17 @@ class ProfilePage extends React.Component {
 
     getProfileSucces(a) {
         console.log(a);
-        if (a.avatarUrl) {
-            this.setState({
-                name: a.name,
-                picture: a.avatarUrl,
-                about: a.about,
-                aboutShort: a.aboutShort,
-                commentsCount: a.commentsCount,
-                postsCount: a.postsCount
-            });
-        }else {
-            this.setState({
-                name: a.name,
-                about: a.about,
-                aboutShort: a.aboutShort,
-                commentsCount: a.commentsCount,
-                postsCount: a.postsCount
-                
-            });
-        }
+        
+        this.setState({
+            name: a.name,
+            picture: a.avatarUrl || "profile.png",
+            about: a.about,
+            aboutShort: a.aboutShort,
+            commentsCount: a.commentsCount,
+            postsCount: a.postsCount
+        });
+        
+        
     }
     getProfileFail(a) {
         console.log(a);
@@ -71,11 +63,14 @@ class ProfilePage extends React.Component {
                                 <img src={picture} />
                             </div>
                             <h2>{name}</h2>
-                            <button onClick={this.toggleModal}>
-          Open the modal
+                            <button  onClick={this.toggleModal}>
+                                    Edit profile
                             </button>
+                            
 
-                            <EditProfile show={this.state.isOpen}
+                            <EditProfile 
+                                obj={this.state}
+                                show={this.state.isOpen}
                                 onClose={this.toggleModal}>
                                 <div style={{ "color": "red" }}>
                                     <Login/>

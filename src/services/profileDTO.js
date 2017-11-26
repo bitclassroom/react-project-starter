@@ -9,6 +9,13 @@ class ProfileDTO{
         this._postsCount = input.postsCount;
         this._commentsCount = input.commentsCount;
         this._userId = input.userId;
+        this._email = input.email;
+    }
+    get email(){
+        return this._email;
+    }
+    set email(a){
+        this._email=a;
     }
     get userId(){
         return this._userId;

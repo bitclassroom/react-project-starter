@@ -32,7 +32,7 @@ class CommunicationService {
             callbackFail(reason);
         });
     }
-    put(address, dataObj, callbackSucces, callbackFail){
+    put(address, dataObj, callbackSuccess, callbackFail){
         axios({
             method: "put",
             url: FETCH_ADDRESS + address,

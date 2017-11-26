@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import AuthenticationService from "../services/authenticationService";
-import Dashboard from "./dashboard";
+
 import LoginPage from "./loginComponents/loginPage";
 import MainPage from "./mainPage";
 class App extends React.Component {

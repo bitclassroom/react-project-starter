@@ -9,8 +9,9 @@ class DataService {
         comObj.get("profile", a => callback(new ProfileDTO(a)), a => failCallback(a));
     }
     editProfile(dataObj, callbackSucces, callbackFail) {
-        comObj.put("Profiles", dataObj, a => this.getProfile(callbackSucces, callbackFail),
-            callbackFail);
+        console.log(dataObj);
+        comObj.put("Profiles", dataObj, callbackSucces, callbackFail);
+            
 
     }
 }
