@@ -7,23 +7,21 @@
 }
 
 .checked{
-    background-color: rgb(104, 187, 231);
+    background-color: rgba(116, 208, 146, 0.2);
+    box-shadow: -12px 11px 34px -1px rgba(44,62,80,0.34);
 }
 
 .hover:link {
     text-decoration: none;
 }
 
-.hover:visited {
-    background-color: rgb(104, 187, 231);
-}
 
 .hover:hover {
-    background-color: rgb(104, 187, 231);
+    background-color: rgba(116, 208, 146, 0.2);
 }
 
 .hover:active {
-    background-color: rgb(104, 187, 231);
+    box-shadow: -12px 11px 34px -1px rgba(44,62,80,0.34);
 } 
 
 .navColor {
@@ -41,7 +39,7 @@
 }
 
 .profileButton {
-    margin: 30px 20px;
+    margin: 30px 20%;
 }
 
 .loginProfileButton {
@@ -87,6 +85,23 @@
     background-color: rgba(116, 162, 208, 0.3);
 }
 
+.labelStyle {
+    color: rgba(46, 79, 96, 0.9);
+}
+
+.entryPageButton {
+    width: 25%;
+}
+.entryPageButton:hover {
+    width: 50%;
+}
+
+.welcomeStyle {
+    text-align: center;
+    color: rgba(44, 62, 80, 1);
+    padding-right: 15%;
+    line-height: 2em;
+}
 
 
 

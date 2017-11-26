@@ -17,7 +17,7 @@ const imgStyle = {
 };
 
 const cardStyle = {
-    width: "70%px",
+    minWidth: "100%",
     padding: "20px",
     margin: "60px 0",
     textAlign: "center",
