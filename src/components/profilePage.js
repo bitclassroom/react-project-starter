@@ -1,6 +1,9 @@
 import React from "react";
 import dataObj from "../services/dataService";
 import { Link } from "react-router-dom";
+import EditProfile from "./modalEditProfile";
+import PropTypes from "prop-types";
+import Modal from "react-modal";
 // MainPage = Feed Page
 
 class ProfilePage extends React.Component {
@@ -10,47 +13,52 @@ class ProfilePage extends React.Component {
         this.bindThisAndThats();
     }
     bindThisAndThats() {
+        this.toggleModal = this.toggleModal.bind(this);
         this.getProfileSucces = this.getProfileSucces.bind(this);
     }
     initialState() {
         return {
+            isOpen: false,
             name: "Nicolas Cage",
             picture: "profile.png",
         };
     }
-    componentWillMount() {
-
+    componentDidMount(nextProps) {
         dataObj.getProfile(this.getProfileSucces, this.getProfileFail);
     }
+    getCool(obj) {
 
-    getProfileSucces(a) {
+
+
+    }
+    getError(a) {
         console.log(a);
-        if (a.avatarUrl) {
-            this.setState({
-                name: a.name,
-                picture: a.avatarUrl,
-                about: a.about,
-                aboutShort: a.aboutShort,
-                commentsCount: a.commentsCount,
-                postsCount: a.postsCount
-            });
-        }else {
-            this.setState({
-                name: a.name,
-                about: a.about,
-                aboutShort: a.aboutShort,
-                commentsCount: a.commentsCount,
-                postsCount: a.postsCount
-                
-            });
-        }
+    }
+    getProfileSucces(a) {
+        this.setState({
+            name: a.name,
+            picture: a.avatarUrl || "profile.png",
+            about: a.about,
+            aboutShort: a.aboutShort,
+            commentsCount: a.commentsCount,
+            postsCount: a.postsCount,
+            id: a.userId
+        });
+
     }
     getProfileFail(a) {
         console.log(a);
         console.log("FAIL");
     }
+    toggleModal() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
     render() {
-        const { name, picture, edit } = this.state;
+
+        const { name, picture, about, postsCount, commentsCount, aboutShort, id } = this.state;
+
         return (
             <div className="profile">
                 <div className="container">
@@ -60,12 +68,39 @@ class ProfilePage extends React.Component {
                                 <img src={picture} />
                             </div>
                             <h2>{name}</h2>
-                            <Link to="/mainFeedPage"> Edit Profile</Link>
-                            <p>Beogradski institut za tehnologiju – BIT je škola za programiranje osnovana u Beogradu, s ciljem
-                                da svoje polaznike uči praktičnim i primenljivim znanjima u IT industriji. Tehnički deo programa je FrontEnd Stack,
-                                najčešće tražen od strane poslodavaca.
-                                Pored tehničkog obrazovanja, u BITu se uči i kako funkcioniše IT industrija i kako pronaći svoje mesto u njoj.
+                            <button onClick={this.toggleModal}>
+                                Edit profile
+                            </button>
+                            {/* <Modal
+                                isOpen={this.state.isOpen}
+                                aria={{
+                                    labelledby: "heading",
+                                    describedby: "full_description"
+                                }}>
+                                <h1 id="heading">H1</h1>
+                                <button onClick={this.toggleModal}>
+                                    Edit profile
+                                </button>
+                                <div id="full_description">
+                                    <p>Description goes here.</p>
+                                </div>
+                            </Modal> */}
+                            <EditProfile
+                                obj={this.state}
+                                show={this.state.isOpen}
+                                onClose={this.toggleModal}>
+                                
+                            </EditProfile>
+                            <p>About You:</p>
+                            <p>
+                                {about}
                             </p>
+                            <p>Key Interests:</p>
+                            <p>
+                                {aboutShort}
+                            </p>
+                            <span>Post count: {postsCount} </span>
+                            <span>Comments count: {commentsCount} </span>
                         </div>
                     </div>
                 </div>
@@ -73,5 +108,7 @@ class ProfilePage extends React.Component {
         );
     }
 }
-
+ProfilePage.propTypes = {
+    match: PropTypes.object
+};
 export default ProfilePage;

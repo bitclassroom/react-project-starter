@@ -12,9 +12,9 @@ class CommunicationService {
         axios({
             method: "get",
             url: FETCH_ADDRESS + address,
-            headers: this.createRequest()
+            headers: this.createHeader()
         }).then((response) => {
-            callbackSuccess(response.data);
+            callbackSuccess(response);
         }).catch((reason) => {
             callbackFail(reason);
         });
@@ -24,7 +24,20 @@ class CommunicationService {
             method: "post",
             url: FETCH_ADDRESS + address,
             data: dataObj,
-            headers: this.createRequest()
+            headers: this.createHeader()
+        }).then((response) => {
+            callbackSuccess(response.data);
+
+        }).catch((reason) => {
+            callbackFail(reason);
+        });
+    }
+    put(address, dataObj, callbackSuccess, callbackFail){
+        axios({
+            method: "put",
+            url: FETCH_ADDRESS + address,
+            data: dataObj,
+            headers: this.createHeader()
         }).then((response) => {
             callbackSuccess(response.data);
 
@@ -42,7 +55,7 @@ class CommunicationService {
     clearID(){
         sessionStorage.clear();
     }
-    createRequest() {
+    createHeader() {
         const sesID = this.getID();
         if (sesID) {
             return {

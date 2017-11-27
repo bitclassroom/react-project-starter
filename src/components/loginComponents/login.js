@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthenticationService from "../../services/authenticationService";
-import { redirect } from "../redirect";
-import {setID} from "../../services/sessionStorageManipulation";
+import { redirect } from "../../services/redirect";
+import {setID, setUserID} from "../../services/sessionStorageManipulation";
 class Login extends React.Component {
     constructor(props) {
         super(props);
