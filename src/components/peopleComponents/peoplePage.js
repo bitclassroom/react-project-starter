@@ -8,17 +8,35 @@ class PeoplePage extends React.Component {
         this.state = this.initialState();
         this.bindThisAndThats();
     }
+    handleChange(event){
+        var niz = this.state.pplArray;
+        var niz1 = this.state.pplArray2;
+        niz= niz1.filter(this.filterPpl, event.target.value);
+        this.setState({
+            [event.target.name]: event.target.value,
+            pplArray:niz
+        });
+       
+
+    }
+    filterPpl(prs){
+        if(prs.name.toLowerCase().includes(this.toLowerCase())) return prs;
+    }
     bindThisAndThats(){
         this.success = this.success.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
     initialState(){
         return {
-            pplArray: []
+            searchText: "",
+            pplArray: [],
+            pplArray2: []
         };
     }
     success(a){
         this.setState({
-            pplArray : a
+            pplArray : a,
+            pplArray2 : a
         });
     }
     fail(a){
@@ -29,13 +47,14 @@ class PeoplePage extends React.Component {
     }
     render() {
         const {pplArray} = this.state;
+       
         return(
             <div>
-                <input placeholder="Search User" className="form-control"/>
+                <input placeholder="Search User" name="searchText" onChange={this.handleChange} value={this.state.searchText} className="form-control"/>
                 {pplArray.map((prs) => (
                 
                     <Link to= {`/profilePagee/:${prs.id}`} onClick={()=>{sessionStorage.setItem("truc", prs.id);}} key={prs.id}>
-                        <PeoplePreview person={prs}  />);
+                        <PeoplePreview person={prs}  />
                     </Link>
                 )
                 )}            
