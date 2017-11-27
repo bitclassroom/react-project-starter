@@ -8,7 +8,9 @@ class MainFeedPage extends React.Component {
 
     render() {
         return (
-            <h1>Hello Feed</h1>
+            <div className="profile">
+                <h1>Hello Feed</h1>
+            </div>
         );
     }
 }

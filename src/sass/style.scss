@@ -66,7 +66,7 @@ html {
 }
 
 body {
-  background:$body-bg;
+  background: #fff;
   font-family: 'Lato', sans-serif;
 }
 
@@ -81,6 +81,22 @@ a {
 
 // Media screen START
 
+
+@media screen and (min-width: 1200px){
+    .outer__wrapper {
+        max-width: 75%;
+    }
+    .inner__wrapper--left {
+        float: left;
+        max-width: 45%;
+        margin-right: 5%;
+        }
+    .inner__wrapper--right {
+        float: right;
+        max-width: 45%;
+        margin-left: 5%;
+        }
+}
 // Media screen END
 
 // Our style 
@@ -96,29 +112,45 @@ a {
     .outer__wrapper {
         padding-top: 14%;
         margin: 0 auto;
-        max-width: 75%;
-        .inner__wrapper--left {
-            float: left;
-            max-width: 50%;
+        max-width: 80%;
             .h1__main-page {
-                font-size: 2rem;
-                padding-top: 50px;
+                font-size: 1.5rem;
                 h1 {
                     color: #000;
                     font-weight: bold;
-                    text-align: right;
+                    text-align: center;
                 }
             }
             .p__main-page {
-                font-size: 1.3rem;
                 line-height: 1.4;
                 color: #333;
-                text-align: right;
+                font-size: 1.2rem;
+                text-align: left;
+                padding-bottom: 50px;
             }
-        }
+            @media screen and (min-width: 1200px){
+                .h1__main-page {
+                    font-size: 2rem;
+                    h1 {
+                        text-align: right;
+                        padding-top: 35px;
+                    }
+                }
+                .p__main-page {
+                    font-size: 1.3rem;
+                    text-align: right;
+                    padding-bottom: 40px;
+                }
+            }
         .inner__wrapper--right {
-            float: right;
-            max-width: 50%;
+            // @media screen and (max-width: 1200px){
+            //     float: none;
+            //     max-width: 100%;
+            // } 
+            // @media screen and (max-width: 1920px){
+            //     float: right;
+            //     max-width: 50%;
+            // }
             .tab-group {
                 list-style:none;
                 padding:0;
@@ -160,12 +192,12 @@ a {
             }
         }
     }
+}
     
     .form {
         background:rgba($form-bg,.9);
         padding: 40px;
-        max-width:600px;
-        // margin:40px auto;
+        max-width: 1000px;
         border-radius:$br;
         box-shadow:0 4px 10px 4px rgba($form-bg,.3);
         .top-row {
@@ -200,7 +232,7 @@ a {
             }
             .field-wrap {
                 position:relative;
-                margin-bottom:40px;
+                // margin-bottom:40px;
                 input, textarea {
                     font-size:22px;
                     display:block;
@@ -225,7 +257,7 @@ a {
             }
         }
     }
-}
+
 
 
 .tab-content > div:last-child {
@@ -247,7 +279,7 @@ h1 {
 }
 
 .forgot {
-  margin-top:-20px;
+//   margin-top:-20px;
   text-align:right;
 }
 
@@ -270,14 +302,14 @@ header {
         position: absolute;
         top: 0;
         left: 0;
-        margin-left: 80px;
+        margin-left: 15%;
         padding-top: 4px;
     }
     .navigation-menu {
         position: absolute;
         top: 0;
         right: 0;
-        margin-right: 80px;
+        margin-right: 15%;
         ul li {
             display: inline-block;
             padding: 12px 16px;
@@ -305,15 +337,15 @@ header {
         margin: 0 auto;
         text-align: center;
         .img-container {
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             margin: 0 auto;
             border-radius: 50%;
             margin-top: 50px;
             background-color: $active;
             img {
                 width: 300px;
-                margin-top: 30px;
+                // margin-top: 30px;
             }
         }
         h2 {
@@ -328,6 +360,68 @@ header {
     }
 }
 
+.profile p {
+    padding-top: 8px;
+}
 
-// FORM CONTROL
- 
+// people
+
+.outer__wrapper--peoplePreview {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+}
+.outer__wrapper--peoplePreview img {
+    height: 80px;
+    width: 80px;
+}
+
+.people__avatars {
+    width: 320px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    padding: 25px 0;
+    span {
+        float: right;
+        font-size: 25px;
+        padding-top: 28px;
+        color: #333;
+    }
+    img {
+        border:3px solid #444;
+        padding: 5px;
+    }
+}
+
+
+
+.peoplePageElementWrapper {
+    padding: 15px;
+    border-top: 1px solid darkgrey;
+}
+
+
+// Sredi Label Control - Sve je uradjeno samo treba klasa da se dodeli da ne bi menjao i na main-pagu style
+
+// .form-control {
+//     padding: 20px 20px;
+//     max-width: 60%;
+//     margin: 0 auto;
+//     background-color: #555;
+//     color: #fff;
+// }
+
+div.backdrop {
+    background-color: #333;
+}
+div.backdrop button {
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+}
+div.backdrop button:hover {
+    background-color: #175091;
+    color: #fff;
+}
+

@@ -98,12 +98,13 @@ class Login extends React.Component {
 
                                         <input name="username" className="form-control" required type="text" value={this.state.username} placeholder="Username" onChange={this.changeState} />
                                     </div>
-                                    <div style={{ "color": "red" }}>{this.state.badUsernameOrPassword}</div>
+                                    <div style={{ "color": "red", "line-height": "1", "height": "25px" }}>{this.state.badUsernameOrPassword}</div>
 
                                     <div className="field-wrap">
 
                                         <input type="password" name="password" className="form-control" required value={this.state.password} placeholder="Password" onChange={this.changeState} />
                                     </div>
+                                    <div style={{ "color": "red", "line-height": "1", "height": "25px" }}></div>
                                     <button className="form-btn" onClick={this.onClickLogin} type="submit">Login</button>
                                 </div>
                             </form>

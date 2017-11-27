@@ -71,20 +71,6 @@ class ProfilePage extends React.Component {
                             <button onClick={this.toggleModal}>
                                 Edit profile
                             </button>
-                            {/* <Modal
-                                isOpen={this.state.isOpen}
-                                aria={{
-                                    labelledby: "heading",
-                                    describedby: "full_description"
-                                }}>
-                                <h1 id="heading">H1</h1>
-                                <button onClick={this.toggleModal}>
-                                    Edit profile
-                                </button>
-                                <div id="full_description">
-                                    <p>Description goes here.</p>
-                                </div>
-                            </Modal> */}
                             <EditProfile
                                 obj={this.state}
                                 show={this.state.isOpen}
