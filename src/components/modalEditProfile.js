@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import dataObj from "../services/dataService";
 import ProfileDTO from "../services/profileDTO";
 import validateEmail from "../services/validateEmail";
-import { redirect } from "./redirect";
+import { redirect } from "../services/redirect";
 
 class EditProfile extends React.Component {
     constructor(props){
@@ -29,7 +29,7 @@ class EditProfile extends React.Component {
     }
     onDoubleClick(){
         this.setState({
-            _avatarUrl:""
+            avatarUrl:""
         });
     }
     getProfileFail(a) {
@@ -56,7 +56,7 @@ class EditProfile extends React.Component {
             name : obj.name,
             about: obj.about,
             aboutShort : obj.aboutShort,
-            avatarUrl : obj.avatarUrl,
+            avatarUrl : obj.avatarUrl || "Please put some pucture, we love that.",
             email: obj.email
         };
     }
@@ -71,7 +71,7 @@ class EditProfile extends React.Component {
     
     render() {
         if (!this.props.show) {
-            return null;
+            return "";
         } else {
             const backdropStyle = {
                 position: "fixed",

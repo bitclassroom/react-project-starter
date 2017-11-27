@@ -32,13 +32,13 @@ class NavMenu extends React.Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/profilePage">
+                                <Link to="/profilePage/">
                                    PROFILE
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/postPage">
-                                    POSTS
+                                <Link to="/peoplePage">
+                                    PEOPLE
                                 </Link>
                             </li>
                             <li>

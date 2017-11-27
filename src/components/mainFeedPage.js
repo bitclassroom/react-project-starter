@@ -1,5 +1,5 @@
 import React from "react";
-// MainPage = Feed Page
+
 
 class MainFeedPage extends React.Component {
     constructor(props) {

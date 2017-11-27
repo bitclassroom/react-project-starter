@@ -1,5 +1,5 @@
 import comObj from "./communicationService";
-import { redirect } from "../components/redirect";
+import { redirect } from "./redirect";
 class AuthenticationService {
     constructor() {
 

@@ -14,7 +14,7 @@ class CommunicationService {
             url: FETCH_ADDRESS + address,
             headers: this.createHeader()
         }).then((response) => {
-            callbackSuccess(response.data);
+            callbackSuccess(response);
         }).catch((reason) => {
             callbackFail(reason);
         });

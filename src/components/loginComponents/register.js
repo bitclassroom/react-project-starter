@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AuthenticationService from "../../services/authenticationService";
 import validateEmail from "../../services/validateEmail";
-import {redirect} from "../redirect";
+import {redirect} from "../../services/redirect";
 class Register extends React.Component {
     constructor(props) {
         super(props);

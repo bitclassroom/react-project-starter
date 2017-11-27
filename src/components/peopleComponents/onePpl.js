@@ -1,20 +1,20 @@
 import React from "react";
-import dataObj from "../services/dataService";
+import dataObj from "../../services/dataService";
 import { Link } from "react-router-dom";
-import EditProfile from "./modalEditProfile";
-import Login from "./loginComponents/login";
+import Login from "../loginComponents/login";
 import PropTypes from "prop-types";
+import { redirect } from "../../services/redirect";
 
 // MainPage = Feed Page
 
-class ProfilePage extends React.Component {
+class OnePpl extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.initialState();
         this.bindThisAndThats();
     }
     bindThisAndThats() {
-        this.toggleModal = this.toggleModal.bind(this);
+        
         this.getProfileSucces = this.getProfileSucces.bind(this);
     }
     initialState() {
@@ -25,17 +25,11 @@ class ProfilePage extends React.Component {
         };
     }
     componentDidMount(nextProps) {
-        dataObj.getProfile(this.getProfileSucces, this.getProfileFail);
-    }
-    getCool(obj){
         
-        
-
-    }
-    getError(a){
-        console.log(a);
+        dataObj.getAnyProfile(sessionStorage.getItem("truc"),this.getProfileSucces, this.getProfileFail);
     }
     getProfileSucces(a) {
+        if(!a){return;}
         this.setState({
             name: a.name,
             picture: a.avatarUrl || "profile.png",
@@ -51,15 +45,18 @@ class ProfilePage extends React.Component {
         console.log(a);
         console.log("FAIL");
     }
-    toggleModal()  {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
+    
+    checkID(response){
+        const truc = sessionStorage.getItem("truc");
+        if(truc == response.userId){
+            redirect("/#/profilePage/");
+            sessionStorage.removeItem("truc");
+        }
+        sessionStorage.removeItem("truc");
     }
     render() {
-        
         const { name, picture, about, postsCount, commentsCount, aboutShort, id} = this.state;
-        
+        dataObj.getProfile(this.checkID);
         return (
             <div className="profile">
                 <div className="container">
@@ -69,19 +66,10 @@ class ProfilePage extends React.Component {
                                 <img src={picture} />
                             </div>
                             <h2>{name}</h2>
-                            <button  onClick={this.toggleModal}>
-                                    Edit profile
-                            </button>
+                            
                             
 
-                            <EditProfile 
-                                obj={this.state}
-                                show={this.state.isOpen}
-                                onClose={this.toggleModal}>
-                                <div style={{ "color": "red" }}>
-                                    <Login/>
-                                </div>
-                            </EditProfile>
+                            
                             <p>About You:</p>
                             <p> 
                                 {about}
@@ -99,7 +87,5 @@ class ProfilePage extends React.Component {
         );
     }
 }
-ProfilePage.propTypes = {
-    match: PropTypes.object
-};
-export default ProfilePage;
+
+export default OnePpl;
