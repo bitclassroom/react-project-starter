@@ -2,9 +2,8 @@ import React from "react";
 import dataObj from "../services/dataService";
 import { Link } from "react-router-dom";
 import EditProfile from "./modalEditProfile";
-import Login from "./loginComponents/login";
 import PropTypes from "prop-types";
-
+import Modal from "react-modal";
 // MainPage = Feed Page
 
 class ProfilePage extends React.Component {
@@ -27,12 +26,12 @@ class ProfilePage extends React.Component {
     componentDidMount(nextProps) {
         dataObj.getProfile(this.getProfileSucces, this.getProfileFail);
     }
-    getCool(obj){
-        
-        
+    getCool(obj) {
+
+
 
     }
-    getError(a){
+    getError(a) {
         console.log(a);
     }
     getProfileSucces(a) {
@@ -43,23 +42,23 @@ class ProfilePage extends React.Component {
             aboutShort: a.aboutShort,
             commentsCount: a.commentsCount,
             postsCount: a.postsCount,
-            id : a.userId
+            id: a.userId
         });
-        
+
     }
     getProfileFail(a) {
         console.log(a);
         console.log("FAIL");
     }
-    toggleModal()  {
+    toggleModal() {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
     render() {
-        
-        const { name, picture, about, postsCount, commentsCount, aboutShort, id} = this.state;
-        
+
+        const { name, picture, about, postsCount, commentsCount, aboutShort, id } = this.state;
+
         return (
             <div className="profile">
                 <div className="container">
@@ -69,25 +68,35 @@ class ProfilePage extends React.Component {
                                 <img src={picture} />
                             </div>
                             <h2>{name}</h2>
-                            <button  onClick={this.toggleModal}>
-                                    Edit profile
+                            <button onClick={this.toggleModal}>
+                                Edit profile
                             </button>
-                            
-
-                            <EditProfile 
+                            {/* <Modal
+                                isOpen={this.state.isOpen}
+                                aria={{
+                                    labelledby: "heading",
+                                    describedby: "full_description"
+                                }}>
+                                <h1 id="heading">H1</h1>
+                                <button onClick={this.toggleModal}>
+                                    Edit profile
+                                </button>
+                                <div id="full_description">
+                                    <p>Description goes here.</p>
+                                </div>
+                            </Modal> */}
+                            <EditProfile
                                 obj={this.state}
                                 show={this.state.isOpen}
                                 onClose={this.toggleModal}>
-                                <div style={{ "color": "red" }}>
-                                    <Login/>
-                                </div>
+                                
                             </EditProfile>
                             <p>About You:</p>
-                            <p> 
+                            <p>
                                 {about}
                             </p>
                             <p>Key Interests:</p>
-                            <p> 
+                            <p>
                                 {aboutShort}
                             </p>
                             <span>Post count: {postsCount} </span>
