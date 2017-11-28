@@ -75,7 +75,7 @@ class ProfilePage extends React.Component {
                                 obj={this.state}
                                 show={this.state.isOpen}
                                 onClose={this.toggleModal}>
-                                
+
                             </EditProfile>
                             <p>About You:</p>
                             <p>

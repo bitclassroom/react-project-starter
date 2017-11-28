@@ -22,7 +22,7 @@ class NavMenu extends React.Component {
                 <nav>
 
                     <div className="logo-img">
-                        <img src="../services/logo-img.png" height="40px" width="38px" alt="logo-image" />
+                        <img src="../services/b-logo.png" height="38px" width="36px" alt="logo-image" />
                     </div>
                     <div className="navigation-menu">
                         <ul>

@@ -214,13 +214,13 @@ header {
   width: 100%;
   background-color: #222;
   text-align: center;
-  height: 50px; }
+  height: 5vh; }
   header .logo-img {
     position: absolute;
     top: 0;
     left: 0;
     margin-left: 15%;
-    padding-top: 4px; }
+    padding-top: 3px; }
   header .navigation-menu {
     position: absolute;
     top: 0;
@@ -231,7 +231,7 @@ header {
       padding: 12px 16px; }
       header .navigation-menu ul li a {
         color: #dbdbdb;
-        font-size: 20px; }
+        font-size: 16px; }
       header .navigation-menu ul li a:hover {
         color: #fff;
         text-decoration: none; }
@@ -239,20 +239,18 @@ header {
 /*-------- Profile --------*/
 .profile {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: 95vh;
   background-color: #ffffff; }
   .profile .profile-container {
     width: 600px;
-    height: 100%;
     margin: 0 auto;
     text-align: center; }
     .profile .profile-container .img-container {
+      overflow: hidden;
       width: 300px;
       height: 300px;
       margin: 0 auto;
-      border-radius: 50%;
-      margin-top: 50px;
-      background-color: #1476ee; }
+      margin-top: 50px; }
       .profile .profile-container .img-container img {
         width: 300px; }
     .profile .profile-container h2 {
@@ -269,29 +267,25 @@ header {
 .outer__wrapper--peoplePreview {
   max-width: 750px;
   margin: 0 auto;
-  background-color: #f2f2f2; }
+  background-color: #f8f8f8; }
 
 .outer__wrapper--peoplePreview img {
-  height: 80px;
-  width: 80px; }
+  height: 55px;
+  width: 55px; }
 
 .people__avatars {
-  width: 320px;
-  margin: 0 auto;
-  background-color: #f2f2f2;
-  padding: 25px 0; }
+  width: 350px;
+  margin: 0 auto; }
   .people__avatars span {
     float: right;
     font-size: 25px;
-    padding-top: 28px;
+    padding-top: 15px;
     color: #333; }
-  .people__avatars img {
-    border: 3px solid #444;
-    padding: 5px; }
 
 .peoplePageElementWrapper {
-  padding: 15px;
-  border-top: 1px solid darkgrey; }
+  padding: 5px 15px;
+  margin: 12px 0;
+  background-color: #ccc; }
 
 div.backdrop {
   background-color: #333; }
