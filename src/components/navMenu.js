@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MainFeedPage from "./mainFeedPage";
+import FeedPage from "./feedComponents/feedPage";
 import {clearID} from "../services/sessionStorageManipulation";
 // import PostPage from "./postPage";
 import ProfilePage from "./profilePage";
@@ -27,7 +27,7 @@ class NavMenu extends React.Component {
                     <div className="navigation-menu">
                         <ul>
                             <li>
-                                <Link to="/mainFeedPage">
+                                <Link to="/feedPage">
                                      FEED
                                 </Link>
                             </li>
