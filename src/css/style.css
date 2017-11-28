@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
+/*body {
+    background: url("http://t4america.org/wp-content/uploads/2013/11/sky.png") repeat-x;
+}*/
+
+html body {
+    background-color: #eefbff;
+}
+
+
+.welcome {
+    position: absolute;
+    top: 150px;
+}
+
+.welcomePage {
+    color: rgb(37, 37, 37);
+}
+
+.loginForm input {
+    padding: 10px;
+    border-radius: 5px 0 5px 0;
+}
+
+.loginForm {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+}
+
+.loginForm input {
+    border: 1px solid #cacaca;
+    margin-top: 20px;
+}
+
+.loginForm button {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    font-weight: 800;
+    font-size: 18px;
+    background-color: #6edaf7;
+}
+
+.loginForm button:hover {
+    background-color: #31a8c5;
+}
+
+.register {
+    margin-right: 10px;
+}
+
+.loginButtons button {
+    width: 100%;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none; 
+    background-color: #013a4d;
+}
+
+.loginButtons button:hover{
+    background-color: #006483;
+}
+
+.loginButtons button:active {
+    background-color: #227d99;
+    border: none;
+}
+
+.loginButtons button a {
+    text-decoration: none;
+    color: white;
+}
+
+
+input:focus {
+    box-shadow: 0px 0px 15px rgb(170, 170, 170);
+    outline: none;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+.avatarContainer {
+    width: 25%;
+    text-align: center;
+    border-radius: 50%;
+    background: #013a4d;
+    margin: 50px auto; 
+}
+
+.avatarPicture {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px rgba(116, 115, 115, 0.7);
+}
+
+
+/*SINGLE USER*/
+
+.singleUser {
+    text-align: center;
+}
+
+
+.singleUser p.count {
+    margin: 50px 20px 20px 20px;
+    background-color: #013a4d;
+    padding: 10px;
+    border-radius: 20px;
+    width: 20%;
+    display: inline-block;
+    color: white;
+}
+
+.singleUser p.count:first-child {
+    background-color: #6edaf7;
+}
+
+/*******/
+
+.profile {
+    text-align: center;
+}
+
+.profile p.count {
+    margin: 50px 20px 20px 20px;
+    background-color: #013a4d;
+    padding: 10px;
+    border-radius: 20px;
+    width: 20%;
+    display: inline-block;
+    color: white;
+}
+
+.profile p.count:first-child {
+    background-color: #6edaf7;
+}
+
+.profile h1 {
+    margin-bottom: 30px;
+}
+
+.profile p {
+    padding: 10px;
+    margin: 0px auto;
+}
+
+.editProfile {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+    background-color: #6edaf7;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+}
+
+.navbar {
+    background-color: #013a4d;
+    box-shadow: 0px 3px 5px rgba(102, 102, 102, 0.9);
+    position: fixed;
+    top: 0;
+}
+
+.navbar button {
+    border: none;
+    color: white;
+    background-color: #6edaf7;
+    margin-right: 10%;
+}
+
+.navbar button:hover {
+    background-color: #31a8c5;
+}
+
+.navbar a {
+    color: white;
+    padding-right: 50px;
+}
+
+.navbar a:hover {
+    color: #ffb833;
+}
+
+#logo {
+    font-size: 1.7em;
+    margin-left: 10%;
+}
+
+.profileRow {
+    margin-top: 60px;
+}
