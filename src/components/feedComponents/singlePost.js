@@ -9,7 +9,6 @@ class SinglePost extends React.Component {
 
         return (
             <div style={{
-                "display": "inline-block",
                 "width": 300,
                 "height": 150
             }}>

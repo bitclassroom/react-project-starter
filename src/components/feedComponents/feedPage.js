@@ -2,6 +2,7 @@ import React from "react";
 import dataObj from "../../services/dataService";
 import SinglePost from "./singlePost";
 import Modal from "react-modal";
+import NewTextPost from "./newTextPost";
 class FeedPage extends React.Component {
     constructor(props) {
         super(props);
@@ -12,6 +13,8 @@ class FeedPage extends React.Component {
         this.success = this.success.bind(this);
         this.addPost = this.addPost.bind(this);
         this.close = this.close.bind(this);
+        this.onPostPost = this.onPostPost.bind(this);
+        this.successPost = this.successPost.bind(this);
     }
     initialState() {
         return {
@@ -19,6 +22,15 @@ class FeedPage extends React.Component {
             pplArray: []
         };
     }
+
+    onPostPost(a){
+        dataObj.postTextPost(a, this.successPost, this.failPost);
+        this.close();
+    }
+
+    successPost(){ dataObj.getAllPosts(this.success, this.success);}
+    failPost(a){console.log(a);}
+
     success(a) {
         console.log(a);
         this.setState({
@@ -28,41 +40,41 @@ class FeedPage extends React.Component {
     componentDidMount() {
         dataObj.getAllPosts(this.success, this.success);
     }
-    addPost(){
+    addPost() {
         this.setState({
-            modalIsOpen:true
+            modalIsOpen: true
         });
-        console.loc("yes");
+
     }
-    close(){
+    close() {
         this.setState({
-            modalIsOpen:false
+            modalIsOpen: false
         });
     }
     render() {
-        const customStyle={
-            overlay : {
-                position          : "fixed",
-                top               : 0,
-                left              : 0,
-                right             : 0,
-                bottom            : 0,
-                backgroundColor   : "rgba(255, 255, 255, 0.75)"
+        const customStyle = {
+            overlay: {
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "rgba(255, 255, 255, 0.75)"
             },
-            content : {
-                position                   : "absolute",
-                top                        : "40px",
-                left                       : "40px",
-                right                      : "40px",
-                bottom                     : "40px",
-                border                     : "1px solid #ccc",
-                background                 : "#fff",
-                overflow                   : "auto",
-                WebkitOverflowScrolling    : "touch",
-                borderRadius               : "4px",
-                outline                    : "none",
-                padding                    : "20px"
-           
+            content: {
+                position: "absolute",
+                top: "140px",
+                left: "140px",
+                right: "140px",
+                bottom: "140px",
+                border: "1px solid #ccc",
+                background: "#fff",
+                overflow: "auto",
+                WebkitOverflowScrolling: "touch",
+                borderRadius: "4px",
+                outline: "none",
+                padding: "20px"
+
             }
         };
         const { pplArray } = this.state;
@@ -71,22 +83,21 @@ class FeedPage extends React.Component {
 
                 {pplArray.map((post) => (
 
-                    <SinglePost post={post} key={post.id}/>
+                    <SinglePost post={post} key={post.id} />
                 )
                 )}
-                <Modal 
+                <Modal
                     isOpen={this.state.modalIsOpen}
                     // onAfterOpen={afterOpenFn}
                     // onRequestClose={requestCloseFn}
                     // closeTimeoutMS={n}
-                    // style={customStyle}
+                    //style={customStyle}
                     contentLabel="Modal"
                 >
-                    <button style={{"float":"right"}} onClick={this.close}> Close </button>
-                    <input placeholder="Add Post" />
-                    <button>Post</button>
+                    <NewTextPost onSave={this.onPostPost} />
+                    <button style={{ "float": "right" }} onClick={this.close}> Close </button>
                 </Modal>
-                <button onClick={ this.addPost }> Add Post </button>
+                <button onClick={this.addPost}> Add Post </button>
             </div>
         );
     }

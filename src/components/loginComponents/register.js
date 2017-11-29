@@ -103,23 +103,23 @@ class Register extends React.Component {
                                     <div className="field-wrap">
                                         <input name="name" type="text" value={name} onChange={this.handleChange} placeholder="Name" />
                                     </div>
-                                    <div style={{ "color": "red", "line-height": "1", "height": "25px" }} >{badName}</div>
+                                    <div style={{ "color": "red", "lineHeight": "1", "height": "25px" }} >{badName}</div>
                                     <div className="field-wrap">
                                         <input name="username" type="text" value={username} onChange={this.handleChange} placeholder="Username" />
                                     </div>
-                                    <div style={{ "color": "red", "line-height": "1", "height": "25px" }}>{badUsername}</div>
+                                    <div style={{ "color": "red", "lineHeight": "1", "height": "25px" }}>{badUsername}</div>
                                     <div className="field-wrap">
                                         <input name="email" type="text" value={email} onChange={this.handleChange} placeholder="E-mail" />
-                                        <div style={{ "color": "red", "line-height": "1", "height": "25px" }}> {badEmail} </div>
+                                        <div style={{ "color": "red", "lineHeight": "1", "height": "25px" }}> {badEmail} </div>
                                     </div>
                                     <div className="field-wrap">
                                         <input name="password1" type="password" value={password1} onChange={this.handleChange} placeholder="Password" />
                                     </div>
-                                    <div style={{ "color": "red", "line-height": "1", "height": "25px" }}> {badPass} </div>
+                                    <div style={{ "color": "red", "lineHeight": "1", "height": "25px" }}> {badPass} </div>
                                     <div className="field-wrap">
                                         <input name="password2" type="password" value={password2} onChange={this.handleChange} placeholder="Repeat password" />
                                     </div>
-                                    <div style={{ "color": "red", "line-height": "1", "height": "25px" }}> {badSecondPass} </div>
+                                    <div style={{ "color": "red", "lineHeight": "1", "height": "25px" }}> {badSecondPass} </div>
                                     <button className="form-btn" onClick={this.onClickRegister} type="submit">Register</button>
                                 </div>
                             </form>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FeedPage from "./feedComponents/feedPage";
-import {clearID} from "../services/sessionStorageManipulation";
+import { clearID } from "../services/sessionStorageManipulation";
 // import PostPage from "./postPage";
 import ProfilePage from "./profilePage";
 
@@ -18,36 +18,32 @@ class NavMenu extends React.Component {
     render() {
 
         return (
-            <header>
-                <nav>
-
-                    <div className="logo-img">
-                        <img src="../services/b-logo.png" height="38px" width="36px" alt="logo-image" />
-                    </div>
-                    <div className="navigation-menu">
-                        <ul>
-                            <li>
-                                <Link to="/feedPage">
-                                     FEED
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/profilePage/">
-                                   PROFILE
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/peoplePage">
-                                    PEOPLE
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/login" onClick={this.logout} ><i className="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                </nav>
+            <header className="header">
+                <div className="outer__wrapper--menu">
+                    <a href="" className="logo"><img src="https://cdn.dribbble.com/users/606206/screenshots/2034939/b-logo-round-light-dribbble.png" height="35px" width="40px" alt="logo-image" /></a>
+                    <input className="menu-btn" type="checkbox" id="menu-btn" />
+                    <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
+                    <ul className="menu">
+                        <li>
+                            <Link to="/feedPage">
+                                FEED
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/profilePage/">
+                                PROFILE
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/peoplePage">
+                                PEOPLE
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/login" onClick={this.logout} ><i className="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</Link>
+                        </li>
+                    </ul>
+                </div>
             </header>
         );
     }
