@@ -3,8 +3,6 @@ import dataObj from "../services/dataService";
 import { Link } from "react-router-dom";
 import EditProfile from "./modalEditProfile";
 import PropTypes from "prop-types";
-import Modal from "react-modal";
-// MainPage = Feed Page
 
 class ProfilePage extends React.Component {
     constructor(props) {
@@ -75,7 +73,7 @@ class ProfilePage extends React.Component {
                                 obj={this.state}
                                 show={this.state.isOpen}
                                 onClose={this.toggleModal}>
-
+                                
                             </EditProfile>
                             <p>About You:</p>
                             <p>
