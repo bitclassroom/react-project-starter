@@ -4,6 +4,14 @@ class DataService {
     constructor() {
 
     }
+    postTextPost(obj, callbackSuccess, callbackFail){
+        comObj.post("TextPosts", obj, a => callbackSuccess(a), a => callbackFail(a));
+    }
+
+    getAllPosts(callback, failcallback){
+        comObj.get("Posts", a => callback(a.data), a => failCallback(a));
+    }
+
     getPeople(callback, failCallback){
         comObj.get("users", a => callback(a.data), a => callback(a));
     }
@@ -13,9 +21,9 @@ class DataService {
     getProfile(callback, failCallback) {
         comObj.get("profile", a => callback(new ProfileDTO(a.data)), a => failCallback(a));
     }
-    editProfile(dataObj, callbackSucces, callbackFail) {
+    editProfile(dataObj, callbackSuccess, callbackFail) {
         console.log(dataObj);
-        comObj.put("Profiles", dataObj, callbackSucces, callbackFail);
+        comObj.put("Profiles", dataObj, callbackSuccess, callbackFail);
             
 
     }

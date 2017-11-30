@@ -3,8 +3,6 @@ import dataObj from "../services/dataService";
 import { Link } from "react-router-dom";
 import EditProfile from "./modalEditProfile";
 import PropTypes from "prop-types";
-import Modal from "react-modal";
-// MainPage = Feed Page
 
 class ProfilePage extends React.Component {
     constructor(props) {
@@ -71,20 +69,6 @@ class ProfilePage extends React.Component {
                             <button onClick={this.toggleModal}>
                                 Edit profile
                             </button>
-                            {/* <Modal
-                                isOpen={this.state.isOpen}
-                                aria={{
-                                    labelledby: "heading",
-                                    describedby: "full_description"
-                                }}>
-                                <h1 id="heading">H1</h1>
-                                <button onClick={this.toggleModal}>
-                                    Edit profile
-                                </button>
-                                <div id="full_description">
-                                    <p>Description goes here.</p>
-                                </div>
-                            </Modal> */}
                             <EditProfile
                                 obj={this.state}
                                 show={this.state.isOpen}
