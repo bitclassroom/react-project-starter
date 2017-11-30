@@ -83,15 +83,15 @@ class EditProfile extends React.Component {
             };
             const content = {
                 position: "absolute",
-                top: "40px",
-                left: "40px",
-                right: "40px",
-                bottom: "40px",
+                top: "10%",
+                left: "10%",
+                right: "10%",
+                bottom: "10%",
                 border: "1px solid #ccc",
-                background: "#999",
+                background: "#E8EAED",
                 overflow: "auto",
                 WebkitOverflowScrolling: "touch",
-                borderRadius: "4px",
+                borderRadius: "30px",
                 outline: "none",
                 padding: "20px"
 
@@ -100,16 +100,16 @@ class EditProfile extends React.Component {
                 <div style={overlay}>
                     <div className="backdrop" style={content}>
                         <form>
-                            <label className="form-control">  Name:</label>
-                            <input onChange={this.changeState} name="name" value={this.state.name} className="form-control" />
-                            <label className="form-control">  E-mail:</label>
-                            <input onChange={this.changeState} name="email" value={this.state.email} className="form-control" />
-                            <label className="form-control">  Picture URL:</label>
-                            <input onChange={this.changeState} onDoubleClick={this.onDoubleClick} name="avatarUrl" value={this.state.avatarUrl} className="form-control" />
-                            <label className="form-control">  About You</label>
-                            <input onChange={this.changeState} name="about" value={this.state.about} className="form-control" />
-                            <label className="form-control">  Key Interests</label>
-                            <input onChange={this.changeState} name="aboutShort" value={this.state.aboutShort} className="form-control" />
+                            <label className="form-control__profile form-control__profile--color">  Name:</label>
+                            <input onChange={this.changeState} name="name" value={this.state.name} className="form-control__profile" />
+                            <label className="form-control__profile form-control__profile--color">  E-mail:</label>
+                            <input onChange={this.changeState} name="email" value={this.state.email} className="form-control__profile" />
+                            <label className="form-control__profile form-control__profile--color">  Picture URL:</label>
+                            <input onChange={this.changeState} onDoubleClick={this.onDoubleClick} name="avatarUrl" value={this.state.avatarUrl} className="form-control__profile" />
+                            <label className="form-control__profile form-control__profile--color">  About You</label>
+                            <input onChange={this.changeState} name="about" value={this.state.about} className="form-control__profile" />
+                            <label className="form-control__profile form-control__profile--color">  Key Interests</label>
+                            <input onChange={this.changeState} name="aboutShort" value={this.state.aboutShort} className="form-control__profile" />
                         </form>
 
 

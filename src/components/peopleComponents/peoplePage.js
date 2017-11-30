@@ -54,7 +54,7 @@ class PeoplePage extends React.Component {
             <div className="profile">
                 <div className="outer__wrapper--peoplePreview">
                     <div>
-                        <input placeholder="Search User" name="searchText" onChange={this.handleChange} value={this.state.searchText} className="form-control"/>
+                        <input placeholder="Search User" name="searchText" onChange={this.handleChange} value={this.state.searchText} className="form-control form-control--bonus-css"/>
                         <div className="people__avatars">
                             {pplArray.map((prs) => (
 
