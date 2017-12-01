@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+const getVideoId = require("get-video-id");
 
-class NewTextPost extends React.Component {
+class NewVideoPost extends React.Component {
     constructor(props) {
         super(props);
         this.state={inputField:""};
@@ -17,7 +18,13 @@ class NewTextPost extends React.Component {
     }
 
     createButtonClicked() {
-        this.props.onSave({text: this.state.inputField}, "TextPosts");
+        const vidObj = getVideoId(this.state.inputField);
+        if(vidObj){
+            if(vidObj.service=== "youtube"){
+                this.props.onSave({videoUrl: vidObj.id}, "VideoPosts");
+            }else{alert("mora YT");}
+        }else{alert("greska");}
+        
     }
    
     
@@ -27,7 +34,7 @@ class NewTextPost extends React.Component {
         return (
             <Fragment>
                 <h1 style={{ "color": "black" }}>New Text Post</h1>
-                <h6>text content</h6>
+                <h6>Video Url</h6>
                 
                 <input onChange={this.onInputChange} placeholder="Add Post" />
                 <button onClick={this.createButtonClicked}>Post</button>
@@ -36,7 +43,7 @@ class NewTextPost extends React.Component {
         );
     }
 }
-NewTextPost.propTypes = {
+NewVideoPost.propTypes = {
     onSave: PropTypes.func
 };
-export default NewTextPost;
+export default NewVideoPost;

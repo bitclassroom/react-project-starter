@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class NewTextPost extends React.Component {
+class NewImagePost extends React.Component {
     constructor(props) {
         super(props);
         this.state={inputField:""};
@@ -17,7 +17,7 @@ class NewTextPost extends React.Component {
     }
 
     createButtonClicked() {
-        this.props.onSave({text: this.state.inputField}, "TextPosts");
+        this.props.onSave({ImageUrl: this.state.inputField}, "ImagePosts");
     }
    
     
@@ -27,7 +27,7 @@ class NewTextPost extends React.Component {
         return (
             <Fragment>
                 <h1 style={{ "color": "black" }}>New Text Post</h1>
-                <h6>text content</h6>
+                <h6>Image URL</h6>
                 
                 <input onChange={this.onInputChange} placeholder="Add Post" />
                 <button onClick={this.createButtonClicked}>Post</button>
@@ -36,7 +36,7 @@ class NewTextPost extends React.Component {
         );
     }
 }
-NewTextPost.propTypes = {
+NewImagePost.propTypes = {
     onSave: PropTypes.func
 };
-export default NewTextPost;
+export default NewImagePost;

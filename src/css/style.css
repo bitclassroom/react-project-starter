@@ -262,7 +262,9 @@ a:hover {
   clear: both;
   max-height: 0;
   transition: max-height .2s ease-out; }
-
+.hiddenButtons{
+  display: none;
+}
 /* menu icon */
 .header .menu-icon {
   cursor: pointer;

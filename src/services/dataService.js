@@ -4,11 +4,14 @@ class DataService {
     constructor() {
 
     }
+    postPost(str, obj, callbackSuccess, callbackFail){
+        comObj.post(str, obj, a => callbackSuccess(a), a => callbackFail(a));
+    }
     postTextPost(obj, callbackSuccess, callbackFail){
         comObj.post("TextPosts", obj, a => callbackSuccess(a), a => callbackFail(a));
     }
 
-    getAllPosts(callback, failcallback){
+    getAllPosts(callback, failCallback){
         comObj.get("Posts", a => callback(a.data), a => failCallback(a));
     }
 
