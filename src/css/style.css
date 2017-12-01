@@ -361,9 +361,7 @@ ul li a {
   -webkit-transition: max-height .2s ease-out;
   -o-transition: max-height .2s ease-out;
   transition: max-height .2s ease-out; }
-.hiddenButtons{
-  display: none;
-}
+
 /* menu icon */
 .header .menu-icon {
   cursor: pointer;
