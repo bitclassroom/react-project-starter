@@ -381,11 +381,6 @@ ul li a {
     text-decoration: none;
 }
 
-a:hover {
-    //  font-weight: bold;
-    color: #000;
-}
-
 .header {
     background-color: #1a181e;
     box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
@@ -400,6 +395,9 @@ a:hover {
     list-style: none;
     overflow: hidden;
     background-color: #1a181e;
+    @media screen and (min-width: 1200px){
+        padding: 3px;
+    }
 }
 
 .header li a {
@@ -508,7 +506,8 @@ a:hover {
         float: left;
     }
     .header li a {
-        padding: 20px 20px;
+        margin-top: 10px;
+        padding: 10px 20px;
     }
     .header .menu {
         clear: none;
@@ -529,7 +528,7 @@ a:hover {
     height: 100vh;
     background-color: #E8EAED;
     .profile-container {
-        width: 600px;
+        width: 520px;
         margin: 0 auto;
         text-align: center;
         .img-container {
@@ -545,7 +544,7 @@ a:hover {
         h2 {
             font-size: 40px;
             color: #333;
-            margin: 50px 0 10px;
+            margin: 85px 0 10px;
             text-align: center;
         }
         .btn {
@@ -590,10 +589,10 @@ a:hover {
 }
 
 .people__avatars {
-    width: 350px;
+    width: 400px;
     margin: 0 auto;
      :hover {
-        background-color: #c3c3c3;
+        background-color: rgb(247, 247, 247);
     }
     span {
         float: right;
@@ -606,9 +605,10 @@ a:hover {
 .form-control--bonus-css {
     margin-top: 35px;
     text-align: center;
-    padding: 5px 0;
+    padding: 10px 0;
     font-size: 18px;
     border: 2px solid #316AAB;
+    box-shadow: 3px 3px 5px #999;
     @media screen and (min-width: 700px){
         // margin-top: 30px;
     }
@@ -616,9 +616,10 @@ a:hover {
 
 .peoplePageElementWrapper {
     padding: 5px 15px;
-    margin: 12px 0;
-    background-color: #f2f2f2;
-    border-left: 3px solid #5084bb;
+    margin: 15px 0;
+    background-color: #fff;
+    border-left: 4px solid #5084bb;
+    box-shadow: 3px 3px 5px #888888;
 }
 
 
