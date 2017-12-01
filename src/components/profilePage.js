@@ -62,29 +62,33 @@ class ProfilePage extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="profile-container">
-                            <div className="img-container">
-                                <img src={picture} />
+                            <div className="inner__wrapper--left">
+                                <div className="img-container">
+                                    <img src={picture} />
+                                </div>
                             </div>
-                            <h2>{name}</h2>
-                            <button onClick={this.toggleModal}>
-                                Edit profile
-                            </button>
-                            <EditProfile
-                                obj={this.state}
-                                show={this.state.isOpen}
-                                onClose={this.toggleModal}>
-                                
-                            </EditProfile>
-                            <p>About You:</p>
-                            <p>
-                                {about}
-                            </p>
-                            <p>Key Interests:</p>
-                            <p>
-                                {aboutShort}
-                            </p>
-                            <span>Post count: {postsCount} </span>
-                            <span>Comments count: {commentsCount} </span>
+                            <div className="inner__wrapper--right">
+                                <h2>{name}</h2>
+                                <button className="btn" onClick={this.toggleModal}>
+                                    Edit profile
+                                </button>
+                                <EditProfile
+                                    obj={this.state}
+                                    show={this.state.isOpen}
+                                    onClose={this.toggleModal}>
+
+                                </EditProfile>
+                                <p><mark className="mark2">About You:</mark></p>
+                                <p>
+                                    {about}
+                                </p>
+                                <p><mark className="mark2">Key Interests:</mark></p>
+                                <p>
+                                    {aboutShort}
+                                </p>
+                                <p><mark>Post count: {postsCount}</mark></p>
+                                <p><mark>Comments count: {commentsCount}</mark></p>
+                            </div>
                         </div>
                     </div>
                 </div>

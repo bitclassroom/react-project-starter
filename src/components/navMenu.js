@@ -20,7 +20,7 @@ class NavMenu extends React.Component {
         return (
             <header className="header">
                 <div className="outer__wrapper--menu">
-                    <a href="" className="logo"><img src="https://cdn.dribbble.com/users/606206/screenshots/2034939/b-logo-round-light-dribbble.png" height="35px" width="40px" alt="logo-image" /></a>
+                    <a href="" className="logo"><img src="../components/b-logo.png" height="40px" width="40px" alt="logo-image" /></a>
                     <input className="menu-btn" type="checkbox" id="menu-btn" />
                     <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
                     <ul className="menu">
