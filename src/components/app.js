@@ -1,6 +1,14 @@
 import React from "react";
+import LoginPage from "./login/loginPage";
+import LoginForm from "./login/loginForm";
+import RegisterForm from "./login/registerForm";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-import HelloWorld from "./helloWorld/helloWorld";
+import Header from "./common/header";
+
+
+
+
 
 class App extends React.Component {
     constructor(props) {
@@ -8,7 +16,18 @@ class App extends React.Component {
     }
 
     render() {
-        return <HelloWorld />;
+
+        return (
+
+            <div>
+                <Switch>
+                    <Route exact path="/" component={LoginPage} />   
+                                
+                    <Route path="/login" component={LoginPage} />
+                    <Route path="/register" component={LoginPage} />
+                </Switch>
+            </div>
+        );
     }
 }
 
