@@ -1,0 +1,275 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid{
+    background-image: url('./img/bg2.jpg');
+    padding: 0;
+    background-color: 	rgb(233, 233, 233);
+    margin: 0;
+}
+.editProfile{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    float: right;
+}
+.errorField{
+    color: rgb(180, 33, 33);
+    font-size: 0.8em;
+}
+#form{
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: center;
+    color: white;
+}
+#form input{
+    display: block;
+    border: none;
+    color: white;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+}
+.bg-primary{
+    background-color: 	#1b2c4e !important;
+}
+
+#login{
+    width: 40%;
+    margin-top:15px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    /* transition: border 0.5s; */
+    border-bottom: 5px solid white;
+    border-right: 3px solid white;
+}
+
+.welcome{
+    color: white;
+}
+
+#login:hover{
+    border: 1px solid white;
+}
+
+
+label{
+    margin-top:10px;
+}
+
+.table-bordered{
+    border: 5px solid blue;
+    text-align: center;
+}
+
+.videoPost{
+    padding: 30px;
+    background-color: white;
+    margin-top: 10px;
+    /* text-align: center; */
+}
+.sngPstPg{
+    min-height: 700px;
+}
+.postImage{
+    height: 400px;
+}
+.videoPost input{
+    display: block;
+    width: 70%;
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid rgb(183, 183, 224);
+}
+
+.commentBtn {
+    background-color: #a31862;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    display: block;
+    width: 13%;
+    margin-left: 20px;
+}
+.typeOfPost{
+    padding-top: 40px;
+}
+.login-form{
+    margin: 10px;
+
+}
+.linkBtn{
+    padding-top: 15px;
+}
+.borderTop{
+    border-top: 1px solid rgb(223, 223, 240);
+    margin-top: 10px;
+}
+.comments{
+    text-align: center;
+}
+.input-field input{
+    display: block;
+    width: 100%;
+}
+.logInPage{
+    background-image: url("img/bgVideo.gif");
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-size: 100% ;
+    min-width: 100%;
+    min-height: 100%;    
+}
+.commentSection{
+    background: white;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.logInForm{
+padding: 100px;
+}
+/* .authorImg{
+    display: block;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+} */
+
+#thead{
+    text-align: center;
+    height: 50px;
+    font-size: 1.2em;
+}
+#thead a{
+    color: white;
+}
+
+.btn-group{
+    padding: 20px;
+}
+.btnBlue{
+
+    padding: 10px;
+}
+.commentPar{
+    padding: 20px;
+}
+
+
+#logout{
+    margin-left: 5px;
+    background-color: white;
+    color: blue;
+}
+
+
+.modalBox input, textarea{
+    display: block;
+    width: 100%;
+}
+.modal-header .close{
+    margin: 0;
+    padding:0;
+    padding-top:7px;
+}
+.modal-header{
+    display: block;
+}
+
+.modal-content label{
+    color:  rgb(90, 90, 219);
+    font-weight: 400;
+}
+.modal-content input, textarea{
+    border: none;
+    border-bottom: 1px solid rgb(175, 205, 240);
+}
+.user{
+    background-color: white;
+    margin: 10px;
+    border-radius: 7px;
+    padding: 5px;
+}
+.user .row{
+    min-height: 150px;
+}
+
+.user img{
+    display: block;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 4px 4px 4px #dfe3ee;
+}
+
+
+.searchInput{
+    display: block;
+    width: 100%;
+    margin-top: 40px;
+    padding: 5px;
+    border: none;
+    box-shadow: 1px 1px 1px #3b5998;
+    border-radius: 5px;
+}
+
+.profilePage{
+    min-height: 1000px;
+    background-color: white;
+    padding: 60px;
+    
+
+}
+.shortAbout{
+    font-style: italic;
+    font-size: 1.2em;
+}
+.profilePage a{
+    text-decoration: none; 
+}
+.profilePage img{
+    box-shadow: 2px 2px 4px black;
+}
+.profilePage button :hover{
+    background-color: blue;
+}
+.profilePage p {
+    padding-top: 10px;
+}
+.footer {
+    height: 150px;
+    text-align: center;
+    padding: 70px;
+    background-color: #0d1627;
+    color: white;
+}
+.footer span{
+    color: #3b5998;
+
+}
+.btn-light a{
+    text-decoration: none;
+    color: #0d1627;
+}
+.btn-light{
+    border: 1px solid #0d1627;
+}
+.feedPost{
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
