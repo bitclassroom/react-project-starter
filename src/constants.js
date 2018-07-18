@@ -1,1 +1,2 @@
-// export const SOME_GLOBAL_CONFIG = "value";
+export const BASE_URL = "https://bitbookapi.azurewebsites.net/api";
+export const API_KEY = "ThzJG6sS";
